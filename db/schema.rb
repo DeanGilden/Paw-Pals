@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_141626) do
+ActiveRecord::Schema.define(version: 2021_06_08_102542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "date"
+    t.bigint "dog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dog_id"], name: "index_bookings_on_dog_id"
+  end
+
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.string "breed"
+    t.string "temperament"
+    t.string "sex"
+    t.integer "age"
+    t.text "description"
+    t.string "images"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "dog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dog_id"], name: "index_favourites_on_dog_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "dog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dog_id"], name: "index_reviews_on_dog_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +68,10 @@ ActiveRecord::Schema.define(version: 2021_06_07_141626) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "dogs"
+  add_foreign_key "dogs", "users"
+  add_foreign_key "favourites", "dogs"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "reviews", "dogs"
+  add_foreign_key "reviews", "users"
 end

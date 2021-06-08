@@ -16,12 +16,12 @@ user = User.new(name: "Joe Smith", address: "46 Grosvenor Court, Adenmore Road, 
 user.save!
 user = User.new(name: "Robyn Ellison", address: "2 Benwell Rd, London, N7 7BJ", contact_number: "07944334443", email: "re@test.co.uk", password: "123456", avatar: "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623163631/79164134_khqhty.jpg")
 
-
+puts "Creating Dogs..."
 dog = Dog.new(name: "Dolly", breed:"Miniature Dachshund", age: 10, temperament: "Grumpy", sex: "Female", description: "Dolly is a stunning 10 year old Dachshund who still acts like a massive puppy.  She loves her toys and will fight anyone who tries to take them away. Dolly is looking for an adult only PawPal as she can be wary of strangers and reactive to dogs so will need quiet walking areas. Dolly loves Chihuahua’s and other like minded dachshunds.", images: "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623160752/IMG_20200803_200251_1_smefwh.jpg")
 dog.save!
 dog = Dog.new(name: "Lunar", breed: "Siberian Husky", age: 5, temperament: "Energetic", sex: "Female", description: "Lunar is a lively 4 year old Husky looking for an active experience. She loves to go on exciting adventures and would love other dogs that have as much energy as she does! Lunar is such an intelligent girl and would love a pawpal who are enthuastic about playing fetch.", images:"https://res.cloudinary.com/ds6vgzap2/image/upload/v1623159338/image0_yg0byy.jpg")
 dog.save!
-dog = Dog.new(name: "Jimi", breed: "Chihuahua", age: 1, temperament: "Playful", sex: "Male", description: "Jimi is tiny and cute but is someone who also has plenty of character. He may be small, but he thinks he is a big dog in a small body. Jimi does like things on his terms and if he doesnt want to do something he will be sure to tell you. Jimi is very good in the car, he walks very well on the lead and certainly loves a cuddle, but again only on his terms." images: "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623159371/20210521_181741_2_jjbumc.jpg")
+dog = Dog.new(name: "Jimi", breed: "Chihuahua", age: 1, temperament: "Playful", sex: "Male", description: "Jimi is tiny and cute but is someone who also has plenty of character. He may be small, but he thinks he is a big dog in a small body. Jimi does like things on his terms and if he doesnt want to do something he will be sure to tell you. Jimi is very good in the car, he walks very well on the lead and certainly loves a cuddle, but again only on his terms.", images: "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623159371/20210521_181741_2_jjbumc.jpg")
 dog.save!
 dog = Dog.new(name:"Susan", breed: "Cocker Spaniel", age: 3, temperament: "Timid", sex: "Female" , description: "Susan is an energetic 5 year old working cocker cross springer spaniel who loves to be busy. She requires a good balance of physical exercise, training activities and mental stimulation and so would suit a PawPal of a similar type. Sampson enjoys practicing agility in the park, and has started learning some basic gun dog skills to keep her brain engaged.", images: "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623160757/photo-1530281700549-e82e7bf110d6_upsa3g.jpg")
 dog.save!
@@ -37,3 +37,4 @@ dog = Dog.new(name:"Max", breed: "Pomeranian", age: 3, temperament: "Enthuastic"
 dog.save!
 dog = Dog.new(name:"Lemon", breed: "Staffordshire Bull Terrier", age: 9, temperament: "Fun", sex: "Male", description: "Herbie is your typical loving and caring 10 year old Staffordshire Bull Terrier in search of his forever friend. He is your typical staffy who has a huge stomach for tasty treats and will settle with a nice kong filled with lots of goodies! He is an older boy who prefers shorter walks followed by lots of cuddles and fuss!", images: "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623163101/photo-1584479795346-c9d7f74f9811_k0a3md.jpg")
 dog.save!
+puts "Finished Creating Dogs!"

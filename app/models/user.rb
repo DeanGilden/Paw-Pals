@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :dogs, :favourites, :reviews
   has_many :bookings, through: :dogs
-  # validates :name, presence: true
-  # validates :address, presence: true
-  # validates :contact_number, presence: true, uniqueness: true
-  # validates :, presence: true
+  validates :name, :avatar, :address, presence: true
+  validates :contact_number, uniqueness: true
 end

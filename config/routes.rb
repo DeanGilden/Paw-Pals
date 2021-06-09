@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     end
   resources :bookings, only: [ :index, :show, :destroy ]
   resources :reviews, only: [ :destroy ]
-  resources :users, only: [ :show, :destroy ]
-  resources :favourites, only: [ :destroy ]
+  resources :users, only: [ :show, :destroy ] do
+    member do
+      get "dogs"
+    end
+  end
+  resources :favourites, only: [ :destroy, :index ]
 end

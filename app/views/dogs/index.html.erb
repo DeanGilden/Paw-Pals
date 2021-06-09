@@ -1,3 +1,18 @@
+<div class="d-flex pt-3 pb-4 justify-content-center">
+  <div>
+    <%= form_tag dogs_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control input-style mt-1",
+        placeholder: "Enter your address"
+      %>
+  </div>
+   <div>
+    <%= submit_tag "Search", class: "mt-1 btn search-btn" %>
+  <% end %>
+  </div>
+</div>
+
 
 <div class="container">
   <div class="cards">

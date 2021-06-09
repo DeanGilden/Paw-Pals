@@ -1,10 +1,25 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [ :show, :edit, :update, :destroy ]
+
   def index
-    @dogs = Dog.all
+    if params[:query].present?
+      @dogs = User.near(params[:query]).flat_map { |user| user.dogs }
+    else
+      @dogs = Dog.all
+    end
   end
 
-  def show; end
+  def show
+    @users = User.all
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('dog.png')
+      }
+    end
+  end
 
   def new
     @dog = Dog.new

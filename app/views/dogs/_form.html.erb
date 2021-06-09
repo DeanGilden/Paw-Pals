@@ -1,0 +1,11 @@
+<div class=" form-text form-style col-6 offset-3 border p-4 bg-white">
+<%= simple_form_for [dog] do |f| %>
+    <%= f.input :name, required: false, placeholder: "What is your dog's name?"%>
+    <%= f.input :breed, required: false, placeholder: "What is your dog's breed?" %>
+    <%= f.input :age, required: false, placeholder: "What is your dog's age?" %>
+    <%= f.input :sex, required: false, placeholder: "What sex is your dog?" %>
+    <%= f.input :description, required: false, class: ".bg-light", placeholder: 'Please enter a description of your dog:'  %>
+    <%#= f.input :photo, as: :file %>
+    <%= f.button :submit, class: "btn btn-success text-center", id: "create-dog-btn" %>
+  <% end %>
+</div>

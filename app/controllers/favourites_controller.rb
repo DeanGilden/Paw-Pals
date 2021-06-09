@@ -14,6 +14,10 @@ class FavouritesController < ApplicationController
     end
   end
 
+  def index
+    @favourite = Favourite.where(user: current_user)
+  end
+
   def destroy
     @favourite = Favourite.find(params[:id])
     @favourite.destroy

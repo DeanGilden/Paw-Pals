@@ -1,0 +1,29 @@
+<div class="sidebar-wrapper">
+
+    <!-- Sidebar -->
+    <nav id="sidebar" class="sidebar-width mx-auto">
+        <div class="sidebar-header">
+            <h3><%= User.name %>'s' Profile</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+              <% if current_user %>
+                <%= link_to 'My Profile Page', user_path(current_user) %>
+                <% end %>
+            </li>
+            <li>
+                <%= link_to 'My Dogs', dogs_user_path(current_user) %>
+            </li>
+            <li>
+                <%= link_to 'My Bookings', bookings_path %>
+            </li>
+            <li>
+                <%= link_to 'My Favourites', favourites_path %>
+            </li>
+            <li>
+                <a href="#">Sign Out</a>
+            </li>
+        </ul>
+    </nav>
+</div>

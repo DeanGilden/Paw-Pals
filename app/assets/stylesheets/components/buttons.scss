@@ -1,0 +1,17 @@
+.btn-pawpals {
+  padding: 10px 45px;
+  height: 45px;
+  background-color: #EB5C5A;
+  color:  white;
+  border-radius: 50px;
+  // font-family:  'Poppins';
+  font-weight: normal;
+  transition: 0.7s;
+  text-decoration: none;
+  &:hover {
+  background-color:  #eb4946;
+  font-weight: normal;
+  text-decoration: none;
+  color: white;
+  }
+}

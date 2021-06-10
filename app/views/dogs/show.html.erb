@@ -1,4 +1,77 @@
-<h1><%= @dog.name %></h1>
+<div class="show-container d-flex justify-content-center">
+
+  <!-- Dog Profile -->
+
+  <div class="col-md-8 dog-profile">
+    <div class="d-flex justify-content-between align-items-center">
+    <h1><%= @dog.name %></h1>
+    <%= link_to 'Request a meet up', new_dog_booking_path(@dog), class: "btn-pawpals mr-3" %>
+    </div>
+    <div class="d-flex justify-content-between">
+        <p class="breed-margin-left"><%= @dog.breed %></p>
+        <p class="age-margin-right"><%= @dog.age %> years old</p>
+    </div>
+      <%= cl_image_tag @dog.photos.first.key, class: "mx-auto d-block dog-img" %>
+
+    <!-- Dog Description -->
+    <div>
+      <h2>More About <%= @dog.name %> </h2>
+      <p class="dog-profile-text"><%= @dog.description %></p>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+
+  <!-- Side Content-->
+
+  <div class="side-content-container col-md-3">
+
+    <!-- Map -->
+    <div class="side-card ">
+      <p>Location</p>
+      <div id="map"
+      style="width: 100%; height: 450px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+  <!-- Temperament -->
+  <div class="side-card">
+    <p>Temperament</p>
+    <div class="content-card">
+    <%= @dog.temperament %>
+    </div>
+  </div>
+
+  <!-- Owner -->
+  <div class="side-card">
+      <p>Owner</p>
+      <div class="content-card">
+      <%= @dog.user.name %>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<div class="show-container d-flex justify-content-center">
+  <div class="col-md-8 dog-profile">
+    <h2>Reviews</h2>
+  </div>
+  <div class="side-content-container col-md-3"></div>
+  <!-- empty side bar -->
+</div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -10,9 +83,3 @@
 
 <!-- <#% content_for :meta_image, cl_image_path(@dog.images.first.path) %> -->
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-<%= link_to 'Book a Paw Pal meet up', new_dog_booking_path(@dog), class: "btn btn-create mr-3" %>

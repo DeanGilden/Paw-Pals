@@ -1,10 +1,29 @@
+<!-- side nav bar -->
 <div class="container-fluid">
   <div class="row">
     <div class="col-3 border-right">
   <%= render 'shared/sidebar' %>
     </div>
+    <!-- right side page -->
     <div class="col-9">
       <h1>This is the you can see the users dogs</h1>
+        <div class="d-flex justify-content-around align-items-center flex-column">
+       <% @dogs.each do |dog| %>
+        <div class="d-flex justify-content-around align-items-center">
+          <div>
+            <% if dog.photos %>
+            <%= cl_image_tag dog.photos.first.key, class: "dog-avatar m-4" %>
+            <% end %>
+          </div>
+          <div class="mt-3 mb-3">
+            <h3><%= dog.name %></h3>
+           <p><%= dog.breed %></p>
+           <!-- add button for remove dog -->
+           <%#= link_to 'Remove', dog_path(@dogs), method: :delete, class: "btn btn-pawpals" %>
+          </div>
+          </div>
+        <% end %>
+        </div>
     </div>
   </div>
 </div>

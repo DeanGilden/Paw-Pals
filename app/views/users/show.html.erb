@@ -3,8 +3,26 @@
     <div class="col-3 border-right">
   <%= render 'shared/sidebar' %>
     </div>
-    <div class="col-9">
-      <h1>This is the user profile page where you can see and edit your profile</h1>
+
+    <!-- page right -->
+    <div class="col-9 mt-4">
+      <div class="d-flex justify-content-around align-items-center">
+        <div>
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
+        <% else %>
+          <%= image_tag "https://180dc.org/wp-content/uploads/2017/11/profile-placeholder-768x605.png", alt: "alttext", class: "avatar" %>
+        <% end %>
+        </div>
+        <div>
+          <h2> <%= @user.name %> </h2>
+          <p> <%= @user.address %> </p>
+        </div>
+      </div>
+
+      <div>
+         <!-- Add edit form here -->
+      </div>
     </div>
   </div>
 </div>

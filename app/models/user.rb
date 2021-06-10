@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :dogs
   has_many :favourites
   has_many :reviews
-  has_many :bookings, through: :dogs
+  has_many :my_dogs_bookings, through: :dogs, source: :my_bookings
+  has_many :bookings_for_other_dogs, through: :dogs, source: :their_bookings
 
   # validates :name, :avatar, :address, presence: true
   # validates :contact_number, uniqueness: true

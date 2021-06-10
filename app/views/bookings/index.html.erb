@@ -4,8 +4,11 @@
   <%= render 'shared/sidebar' %>
     </div>
     <div class="col-9">
-      <h1>This is the Bookings Index Page</h1>
-      <p> Here you will be able to see the bookings you have made</p>
+      <h1>Your bookings</h1>
+      <% @my_dogs_bookings.each do |booking| %>
+        <%= booking.their_dog.name %>
+
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,6 +1,11 @@
 .mapboxgl-popup {
-  width: 150px;
-  border-radius: 35px;
+  max-width: 200px;
+  border-radius: 10px;
+
+  img {
+    height: 150px;
+    width: auto;
+  }
 }
 
 .mapboxgl-popup-content {

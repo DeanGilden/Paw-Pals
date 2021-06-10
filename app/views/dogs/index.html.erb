@@ -18,7 +18,9 @@
     <% @dogs.each do |dog| %>
     <%= link_to dog_path(dog) do %>
     <div class="card-trip">
-        <img src=" <%=dog.images%>" alt="<%= dog.name %>">
+    <% if dog.photos %>
+      <%= cl_image_tag dog.photos.first.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
       <div class="card-trip-infos">
         <div>
           <h2> <%= dog.name %> </h2>

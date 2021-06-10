@@ -3,8 +3,8 @@
     <%= form_tag dogs_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control input-style mt-1",
-        placeholder: "Enter your address"
+        class: "form-control input-style mt-1", id:"address",
+        placeholder: "Find Paw Pals"
       %>
   </div>
    <div>

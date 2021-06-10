@@ -12,10 +12,17 @@ User.destroy_all
 Favourite.destroy_all
 Review.destroy_all
 
-user = User.new(name: "Joe Smith", address: "46 Grosvenor Court, Adenmore Road, London, SE6 4FD", contact_number: "07706782877", email: "joe@test.co.uk", password: "123456", avatar: "https://res.cloudinary.com/ds6vgzap2/image/upload/v1622215117/85hbbudq7d5j50b82zlnb1595equ.jpg")
+puts "Creating Users ..."
+file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1622215117/85hbbudq7d5j50b82zlnb1595equ.jpg')
+user = User.new(name: "Joe Smith", address: "46 Grosvenor Court, Adenmore Road, London, SE6 4FD", contact_number: "07706782877", email: "joe@test.co.uk", password: "123456")
+user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 user.save!
-user2 = User.new(name: "Robyn Ellison", address: "2 Benwell Rd, London, N7 7BJ", contact_number: "07944334443", email: "re@test.co.uk", password: "123456", avatar: "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623163631/79164134_khqhty.jpg")
+
+file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623163631/79164134_khqhty.jpg')
+user2 = User.new(name: "Robyn Ellison", address: "2 Benwell Rd, London, N7 7BJ", contact_number: "07944334443", email: "re@test.co.uk", password: "123456")
+user2.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 user2.save!
+puts "Finished Creating Users"
 
 puts "Creating Dogs..."
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623160752/IMG_20200803_200251_1_smefwh.jpg')

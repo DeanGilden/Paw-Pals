@@ -19,7 +19,7 @@
     <%= link_to dog_path(dog) do %>
     <div class="card-trip">
     <% if dog.photos %>
-      <%= cl_image_tag dog.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag dog.photos.first.key %>
     <% end %>
       <div class="card-trip-infos">
         <div>

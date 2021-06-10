@@ -10,15 +10,13 @@ class DogsController < ApplicationController
   end
 
   def show
-    @users = User.all
-    @markers = @users.geocoded.map do |user|
+    @markers = [
       {
-        lat: user.latitude,
-        lng: user.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { user: user }),
+        lat: @dog.user.latitude,
+        lng: @dog.user.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { user: @dog.user }),
         image_url: helpers.asset_url('dog.png')
-      }
-    end
+      }]
   end
 
   def new

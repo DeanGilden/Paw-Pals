@@ -40,7 +40,17 @@
   <div class="side-card">
     <p>Temperament</p>
     <div class="content-card">
+    <% if @dog.temperament == "Energetic" %>
+    <i class="fas fa-bolt"></i>
+    <% else %>
+    <i class="fas fa-angry"></i>
+    <% end %>
     <%= @dog.temperament %>
+        <% if @dog.temperament == "Energetic" %>
+    <i class="fas fa-bolt"></i>
+    <% else %>
+    <i class="fas fa-angry"></i>
+    <% end %>
     </div>
   </div>
 

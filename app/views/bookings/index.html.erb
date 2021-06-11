@@ -3,12 +3,27 @@
     <div class="col-3 border-right">
   <%= render 'shared/sidebar' %>
     </div>
-    <div class="col-9">
-      <h1>Your bookings</h1>
-      <% @my_dogs_bookings.each do |booking| %>
-        <%= booking.their_dog.name %>
-
-      <% end %>
+    <div class="col-3">
+      <div>
+      <h1 class="pt-3">Your bookings</h1>
+        <% @my_dogs_bookings.each do |booking| %>
+        <div class="container pt-3">
+          <div class="card-trip">
+          <%= cl_image_tag booking.their_dog.photos.first.key %>
+          <div class="card-trip-infos">
+            <%= booking.their_dog.name %> and <%= booking.my_dog.name %>
+            <div>
+              <%= booking.date.strftime("%d %B    %H:%M") %>
+            </div>
+          </div>
+        </div>
+          <p class="p-2"><i class="fab fa-whatsapp"></i> Chat on WhatsApp with <%= booking.their_dog.name %>'s human <%= booking.their_dog.user.name %></p>
+          <div class="d-flex justify-content-center">
+            <a class="btn btn-success">Continue to chat</a>
+          </div>
+        <% end %>
+        </div>
+      </div>
     </div>
-  </div>
+</div>
 </div>

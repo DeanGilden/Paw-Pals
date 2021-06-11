@@ -61,8 +61,8 @@ file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623162487/a
 dog = Dog.new(name:"Max", breed: "Pomeranian", age: 3, temperament: "Enthuastic", sex: "Male", description: "Max is cheeky dog who is happiest when he is side by side with his handlers on a walk over the fields. As with many dogs you can also add food, toys, other dogs and chilling out in the sun to his list of likes. Whilst Max presents mostly as an enthusiastic and happy dog when with people he knows, there are specific aspects to his personality that an PawPal would need to take on board. Max is not comfortable with unknown people handling him, this will mean on walks Max would need to be kept on lead in public.", user: user)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
-file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623163101/photo-1584479795346-c9d7f74f9811_k0a3md.jpg')
-dog = Dog.new(name:"Lemon", breed: "Staffordshire Bull Terrier", age: 9, temperament: "Fun", sex: "Male", description: "Herbie is your typical loving and caring 10 year old Staffordshire Bull Terrier in search of his forever friend. He is your typical staffy who has a huge stomach for tasty treats and will settle with a nice kong filled with lots of goodies! He is an older boy who prefers shorter walks followed by lots of cuddles and fuss!", user: user)
+file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623392905/henry-ravenscroft-cdkocPV7LKY-unsplash_ozzgta.jpg')
+dog = Dog.new(name:"Lemon", breed: "Staffordshire Bull Terrier", age: 9, temperament: "Fun", sex: "Female", description: "Lemon is your typical loving and caring 10 year old Staffordshire Bull Terrier in search of her forever friend. He is your typical staffy who has a huge stomach for tasty treats and will settle with a nice kong filled with lots of goodies! She is an older girl who prefers shorter walks followed by lots of cuddles and fuss!", user: user)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 puts "Finished Creating Dogs!"

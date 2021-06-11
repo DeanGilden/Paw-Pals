@@ -5,6 +5,7 @@
     <%= f.input :age, required: false, placeholder: "What is your dog's age?" %>
     <%= f.input :sex, required: false, placeholder: "What sex is your dog?" %>
     <%= f.input :temperament, required: false, placeholder: "What is your dog's temperament?" %>
+      <!--
       <div class="text-left d-flex justify-content-center">
         <div class="mr-5">
             <label>
@@ -61,6 +62,7 @@
             </label>
         </div>
       </div>
+      !-->
     <%= f.input :description, required: false, class: ".bg-light", placeholder: 'Please enter a description of your dog:'  %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, class: "btn btn-success text-center", id: "create-dog-btn" %>

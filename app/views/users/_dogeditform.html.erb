@@ -1,0 +1,82 @@
+<div>
+<div class="d-flex justify-content-center">
+    <div class="form-text col-4">
+<%= simple_form_for [dog] do |f| %>
+    <%= f.input :name, required: false, placeholder: "What is your dog's name?"%>
+    <%= f.input :breed, required: false, placeholder: "What is your dog's breed?" %>
+    <%= f.input :age, required: false, placeholder: "What is your dog's age?" %>
+    </div>
+    <div class="form-text col-4">
+    <%= f.input :sex, required: false, placeholder: "What sex is your dog?" %>
+    <%= f.input :temperament, required: false, placeholder: "What is your dog's temperament?" %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
+</div>
+
+    <!-- check boxes
+      <div class="text-left d-flex justify-content-center">
+        <div class="mr-5">
+            <label>
+              <input type="checkbox" checked="checked"> One
+              <span class="checkmark"></span>
+            </label>
+
+            <label>
+              <input type="checkbox"> Two
+              <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="mr-5">
+            <label>
+              <input type="checkbox"> Three
+              <span class="checkmark"></span>
+            </label>
+
+            <label>
+              <input type="checkbox"> Four
+              <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="mr-5">
+            <label>
+              <input type="checkbox" checked="checked"> Five
+              <span class="checkmark"></span>
+            </label>
+
+            <label>
+              <input type="checkbox"> Six
+              <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="mr-5">
+            <label>
+              <input type="checkbox"> Seven
+              <span class="checkmark"></span>
+            </label>
+
+            <label>
+              <input type="checkbox"> Eight
+              <span class="checkmark"></span>
+        </div>
+        <div class="ml-5">
+            <label>
+              <input type="checkbox"> Nine
+              <span class="checkmark"></span>
+            </label>
+
+            <label>
+              <input type="checkbox"> Ten
+              <span class="checkmark"></span>
+            </label>
+
+        </div>
+      </div>
+    -->
+
+
+  <div class="form-text col-8 offset-2">
+    <%= f.input :description, required: false, class: ".bg-light description-height", placeholder: 'Please enter a description of your dog:'  %>
+    <%= f.button :submit, class: "offset-4 btn btn-pawpals text-center mb-3", id: "create-dog-btn" %>
+  <% end %>
+  </div>
+</div>

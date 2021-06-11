@@ -1,0 +1,13 @@
+<div>
+  <div class="d-flex justify-content-center mt-4">
+    <div class="form-text col-6">
+      <%= simple_form_for [user] do |f| %>
+      <%= f.input :name, required: false, placeholder: "What is your name?"%>
+      <%= f.input :address, required: false, placeholder: "What is your address?" %>
+      <%= f.input :contact_number, required: false, placeholder: "What is your number?" %>
+      <%= f.button :submit, class: "offset-4 btn btn-pawpals text-center mb-3", id: "create-dog-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

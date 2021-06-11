@@ -1,27 +1,27 @@
 <div class="sidebar-wrapper">
 
     <!-- Sidebar -->
-    <nav id="sidebar" class="sidebar-width mx-auto">
+    <nav id="sidebar" class="sidebar-width mx-auto mt-4">
         <div class="sidebar-header">
-            <h3><%= User.name %>'s' Profile</h3>
+            <h3 class="mb-4"><%= User.name %>'s' Profile</h3>
         </div>
 
         <ul class="list-unstyled components">
-            <li class="active">
+            <li class="active mb-2">
               <% if current_user %>
                 <%= link_to 'My Profile Page', user_path(current_user) %>
                 <% end %>
             </li>
-            <li>
+            <li class="mb-2">
                 <%= link_to 'My Dogs', dogs_user_path(current_user) %>
             </li>
-            <li>
+            <li class="mb-2">
                 <%= link_to 'My Bookings', bookings_path %>
             </li>
-            <li>
+            <li class="mb-2">
                 <%= link_to 'My Favourites', favourites_path %>
             </li>
-            <li>
+            <li class="mb-2">
                 <%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %>
             </li>
         </ul>

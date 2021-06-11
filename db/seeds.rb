@@ -35,6 +35,7 @@ dog = Dog.new(name: "Dolly", breed:"Miniature Dachshund", age: 10, temperament: 
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623239285/image4_scbsks.jpg')
+
 dog = Dog.new(name: "Lunar", breed: "Siberian Husky", age: 5, temperament: "Energetic", sex: "Female", description: "Lunar is a lively 4 year old Husky looking for an active experience. She loves to go on exciting adventures and would love other dogs that have as much energy as she does! Lunar is such an intelligent girl and would love a pawpal who are enthuastic about playing fetch.", user: user3)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!

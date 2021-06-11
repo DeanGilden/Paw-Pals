@@ -1,33 +1,33 @@
   <nav class="navbar navbar-light navbar-color">
-  <a class="navbar-brand nav-text"><i class="fas fa-dog"></i>Paw Pals<i class="fas fa-dog fa-flip-horizontal"></i> </a>
+  <a class="nav-text-brand nav-logo text-decoration-none">PAW PALS <i class="fas fa-paw"></i></a>
 
   <div class="text-center" id="navbarSupportedContent">
     <ul class="navbar-nav flex-row">
-      <li class="nav-item active pr-5">
-        <%= link_to 'DOGS', dogs_path, class:" nav-text text-decoration-none"%><span class="sr-only"><span>(current)</span></a>
+      <li class="active pr-5">
+        <%= link_to 'DOGS', dogs_path, class:" nav-links text-decoration-none"%><span class="sr-only"><span>(current)</span></a>
       </li>
-      <li class="nav-item pr-5">
-        <%= link_to 'BECOME A PAWPAL', new_dog_path, class: " nav-text text-decoration-none"%>
+      <li class="pr-5 nav-links">
+        <%= link_to 'BECOME A PAWPAL', new_dog_path, class: " nav-links text-decoration-none"%>
       </li>
-      <li class="nav-item pr-5">
+      <li class="m pr-5 nav-links">
         <% if user_signed_in? %>
-        <%= link_to 'MY BOOKINGS', bookings_path, class: "nav-text  text-decoration-none" %>
+        <%= link_to 'MY BOOKINGS', bookings_path, class: "nav-links  text-decoration-none" %>
         <% end %>
       </li>
     </ul>
   </div>
   <div class="dropdown dropleft">
-    <a class="navbar-signin text-decoration-none " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Account
+    <a class="btn-login text-decoration-none" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      My Profile
     </a>
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
       <% if user_signed_in? %>
-      <a class="dropdown-item" href="<%= user_path(current_user) %>">View Profile</a>
-        <a class="dropdown-item" href="<%= destroy_user_session_path %>" data-method="delete">Sign out</a>
+      <a class="text-dark  dropdown-item" href="<%= user_path(current_user) %>">View Profile</a>
+        <a class=" text-dark dropdown-item" href="<%= destroy_user_session_path %>" data-method="delete">Sign out</a>
       <% else %>
-        <a class="dropdown-item" href="<%= new_user_session_path %>">Sign in</a>
-        <a class="dropdown-item" href="<%= new_user_registration_path %>">Create an account</a>
+        <a class="text-dark  dropdown-item" href="<%= new_user_session_path %>">Sign in</a>
+        <a class="text-dark dropdown-item" href="<%= new_user_registration_path %>">Create an account</a>
       <% end %>
     </div>
   </div>

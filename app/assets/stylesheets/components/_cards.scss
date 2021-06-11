@@ -6,7 +6,7 @@
 }
 
 .card-trip > img {
-  height: 300px;
+  height: 350px;
   width: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
@@ -22,6 +22,14 @@
   font-size: 12px;
   opacity: .7;
   margin: 0;
+}
+
+.cards a  {
+  text-decoration: none;
+}
+
+.h2-color {
+  color:  #EB5C5A;
 }
 
 

@@ -6,8 +6,7 @@
     </div>
     <!-- right side page -->
     <div class="col-9">
-      <h1>This is the you can see the users dogs</h1>
-        <div class="d-flex justify-content-around align-items-center flex-column">
+        <div class="d-flex justify-content-around flex-column mt-4">
        <% @dogs.each do |dog| %>
         <div class="d-flex justify-content-around align-items-center">
           <div>
@@ -19,9 +18,10 @@
             <h3><%= dog.name %></h3>
            <p><%= dog.breed %></p>
            <!-- add button for remove dog -->
-           <%#= link_to 'Remove', dog_path(@dogs), method: :delete, class: "btn btn-pawpals" %>
+           <%= link_to 'Remove', dog_path(dog), method: :delete, class: "btn-pawpals" %>
           </div>
           </div>
+          <%= render "dogeditform", dog: dog %>
         <% end %>
         </div>
     </div>

@@ -1,17 +1,17 @@
+<%= form_tag dogs_path, method: :get do %>
 <div class="d-flex pt-4 pb-2 justify-content-center">
   <div>
-    <%= form_tag dogs_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control search-input-height mt-1", id:"address",
-        placeholder: "Find Paw Pals"
-      %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control search-input-height mt-1", id:"address",
+      placeholder: "Find Paw Pals"
+    %>
   </div>
-   <div>
+  <div>
     <%= submit_tag "Search", class: "ml-4 mt-1 btn btn-pawpals" %>
-  <% end %>
   </div>
 </div>
+<% end %>
 
 
 <div class="container">
@@ -19,9 +19,9 @@
     <% @dogs.each do |dog| %>
     <%= link_to dog_path(dog) do %>
     <div class="card-trip">
-    <% if dog.photos %>
+      <% if dog.photos %>
       <%= cl_image_tag dog.photos.first.key %>
-    <% end %>
+      <% end %>
       <div class="card-trip-infos">
         <div>
           <h2> <%= dog.name %> </h2>

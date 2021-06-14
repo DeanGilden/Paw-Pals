@@ -19,7 +19,7 @@ user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 user.save!
 
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623163631/79164134_khqhty.jpg')
-user2 = User.new(name: "Robyn Ellison", address: "12 mill lane, cambridge, cb249xn", contact_number: "07944334443", email: "re@test.co.uk", password: "123456")
+user2 = User.new(name: "Robyn Ellison", address: "Cambridge", contact_number: "07944334443", email: "re@test.co.uk", password: "123456")
 user2.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 user2.save!
 

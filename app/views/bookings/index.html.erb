@@ -1,3 +1,4 @@
+<!-- Side Content-->
 <div class="container-fluid">
   <div class="row">
     <div class="col-3 border-right">
@@ -5,6 +6,7 @@
     </div>
     <div class="col-3">
       <div>
+        <!-- invites the user has sent -->
         <h1 class="pt-3">My Requested Invitations</h1>
         <% @my_dogs_bookings.each do |booking| %>
         <div class="container pt-3">
@@ -19,19 +21,29 @@
             <div>
               <% if booking.accepted == nil %>
               <p>Your Invitation is waiting for a response</p>
-              <%= link_to 'Cancel invitation', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+              <div class="m-3">
+                <%= link_to 'Cancel invitation', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+              </div>
               <% elsif booking.accepted %>
               <p>Invitation has been accepted</p>
-              <%= link_to 'Cancel meet up', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+              <div class="m-3">
+                <%= link_to 'Cancel meet up', booking_path(booking), method: :delete, class: "btn-pawpals" unless booking.date.past? %>
+              </div>
               <% else %>
                 <p>Invitation Declined</p>
-                <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+                <div class="m-3">
+                  <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals m-3" %>
+                </div>
               <% end %>
+              <div class="m-3">
+              <%= link_to 'Write a review', new_dog_review_path(booking.their_dog), class: "btn-pawpals m-3" if booking.accepted && booking.date.past? && booking.date != nil   %>
               </div>
+            </div>
           <% end %>
           </div>
 
-          <h1 class="pt-3">Your Received Invitations</h1>
+          <!-- Invitations the user has recieved-->
+            <h1 class="pt-3">Your Received Invitations</h1>
           <% @their_dogs_bookings.each do |booking| %>
           <p>Invite From <%= booking.my_dog.user.name %></p>
           <p>For a play date between: <%= booking.their_dog.name %> and <%= booking.my_dog.name %></p>
@@ -42,12 +54,18 @@
             <%= link_to "Decline", reject_booking_path(booking), method: :patch %>
             <% elsif booking.accepted %>
             <p>Booking Accepted</p>
-            <%= link_to 'Cancel meet up', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+            <div class="m-3">
+              <%= link_to 'Cancel meet up', booking_path(booking), method: :delete, class: "btn-pawpals" unless booking.date.past? %>
+            </div>
             <% else %>
             <p>Booking Declined</p>
-            <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals" %>
-
+            <div class="m-3">
+              <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+            </div>
             <% end %>
+            <div class="m-3">
+            <%= link_to 'Write a review', new_dog_review_path(booking.my_dog), class: "btn-pawpals" if booking.accepted && booking.date.past? && booking.date != nil   %>
+            </div>
           </div>
           <br>
           <% end %>
@@ -57,5 +75,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>

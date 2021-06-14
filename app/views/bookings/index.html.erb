@@ -16,6 +16,7 @@
               <%= booking.their_dog.name %> and <%= booking.my_dog.name %>
               <div>
                 <%= booking.date.strftime("%d %B    %H:%M") %>
+                <%= link_to 'View more details', booking_path(booking)  %>
               </div>
             </div>
             <div>
@@ -44,6 +45,7 @@
 
           <!-- Invitations the user has recieved-->
             <h1 class="pt-3">Your Received Invitations</h1>
+
           <% @their_dogs_bookings.each do |booking| %>
           <p>Invite From <%= booking.my_dog.user.name %></p>
           <p>For a play date between: <%= booking.their_dog.name %> and <%= booking.my_dog.name %></p>
@@ -67,7 +69,6 @@
             <%= link_to 'Write a review', new_dog_review_path(booking.my_dog), class: "btn-pawpals" if booking.accepted && booking.date.past? && booking.date != nil   %>
             </div>
           </div>
-          <br>
           <% end %>
 
 

@@ -5,12 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Favourite.destroy_all
+Review.destroy_all
 Booking.destroy_all
 Dog.destroy_all
 User.destroy_all
-Favourite.destroy_all
-Review.destroy_all
+
 
 puts "Creating Users ..."
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1622215117/85hbbudq7d5j50b82zlnb1595equ.jpg')

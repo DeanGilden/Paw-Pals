@@ -60,6 +60,19 @@
 <div class="show-container d-flex justify-content-center mb-4">
   <div class="col-md-8 dog-profile">
     <h2>Reviews</h2>
+      <% @reviews.each do |review| %>
+        <div class="review-card d-flex p-3">
+          <%= cl_image_tag @dog.user.photo.key, class: "review-avatar mr-5" %>
+          <div class="review-content">
+            <%= review.content %>
+            <div class="review-stars mt-3">
+              <% 5.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
   </div>
   <div class="side-content-container col-md-3"></div>
   <!-- empty side bar -->

@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :accept, :reject]
 
   def index
     @my_dogs_bookings = current_user.my_dogs_bookings
+    @their_dogs_bookings = current_user.bookings_for_other_dogs
   end
 
   def show; end
@@ -28,8 +29,18 @@ class BookingsController < ApplicationController
   def destroy
     dog = @booking.their_dog
     @booking.destroy
-    redirect_to dog_path(dog)
+    redirect_to bookings_path
     # redirect_to user_path(current_user)
+  end
+
+  def accept
+    @booking.update(accepted: true)
+    redirect_to bookings_path
+  end
+
+  def reject
+    @booking.update(accepted: false)
+    redirect_to bookings_path
   end
 
   private

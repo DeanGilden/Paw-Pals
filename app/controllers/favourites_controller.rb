@@ -8,19 +8,19 @@ class FavouritesController < ApplicationController
     @favourite.dog_id = params[:dog_id]
     @favourite.user = current_user
     if @favourite.save
-      redirect_to dog_path(params[:dog_id])
+      redirect_to favourites_path
     else
       render 'dogs/show'
     end
   end
 
   def index
-    @favourite = Favourite.where(user: current_user)
+    @favourites = Favourite.where(user: current_user)
   end
 
   def destroy
     @favourite = Favourite.find(params[:id])
     @favourite.destroy
-    redirect_to user_path(current_user)
+    redirect_to favourites_path
   end
 end

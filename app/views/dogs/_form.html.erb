@@ -4,68 +4,9 @@
     <%= f.input :breed, required: false, placeholder: "What is your dog's breed?" %>
     <%= f.input :age, required: false, placeholder: "What is your dog's age?" %>
     <%= f.input :sex, required: false, placeholder: "What sex is your dog?" %>
-    <%= f.input :temperament, required: false, placeholder: "What is your dog's temperament?" %>
-      <!--
-      <div class="text-left d-flex justify-content-center">
-        <div class="mr-5">
-            <label>
-              <input type="checkbox" checked="checked"> One
-              <span class="checkmark"></span>
-            </label>
-  
-            <label>
-              <input type="checkbox"> Two
-              <span class="checkmark"></span>
-            </label>
-        </div>
-        <div class="mr-5">
-            <label>
-              <input type="checkbox"> Three
-              <span class="checkmark"></span>
-            </label>
-  
-            <label>
-              <input type="checkbox"> Four
-              <span class="checkmark"></span>
-            </label>
-        </div>
-        <div class="mr-5">
-            <label>
-              <input type="checkbox" checked="checked"> Five
-              <span class="checkmark"></span>
-            </label>
-
-            <label>
-              <input type="checkbox"> Six
-              <span class="checkmark"></span>
-            </label>
-        </div>
-        <div class="mr-5">
-            <label>
-              <input type="checkbox"> Seven
-              <span class="checkmark"></span>
-            </label>
-  
-            <label>
-              <input type="checkbox"> Eight
-              <span class="checkmark"></span>
-        </div>
-        <div class="ml-5">
-            <label>
-              <input type="checkbox"> Nine
-              <span class="checkmark"></span>
-            </label>
-  
-            <label>
-              <input type="checkbox"> Ten
-              <span class="checkmark"></span>
-            </label>
-        </div>
-      </div>
-      !-->
+    <%= f.input :temperament, collection: Dog::TEMPERAMENTS.keys, required: false, placeholder: "What is your dog's temperament?" %>
     <%= f.input :description, required: false, class: ".bg-light", placeholder: 'Please enter a description of your dog:'  %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, class: "btn btn-pawpals text-center", id: "create-dog-btn" %>
   <% end %>
 </div>
-  

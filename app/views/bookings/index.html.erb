@@ -19,8 +19,10 @@
             <div>
               <% if booking.accepted == nil %>
               <p>Your Invitation is waiting for a response</p>
+              <%= link_to 'Cancel invitation', booking_path(booking), method: :delete, class: "btn-pawpals" %>
               <% elsif booking.accepted %>
               <p>Invitation has been accepted</p>
+              <%= link_to 'Cancel meet up', booking_path(booking), method: :delete, class: "btn-pawpals" %>
               <% else %>
                 <p>Invitation Declined</p>
                 <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals" %>
@@ -40,6 +42,7 @@
             <%= link_to "Decline", reject_booking_path(booking), method: :patch %>
             <% elsif booking.accepted %>
             <p>Booking Accepted</p>
+            <%= link_to 'Cancel meet up', booking_path(booking), method: :delete, class: "btn-pawpals" %>
             <% else %>
             <p>Booking Declined</p>
             <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals" %>

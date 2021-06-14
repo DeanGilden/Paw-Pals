@@ -1,8 +1,8 @@
-<div class=" form-style col-6 offset-3 border p-4 bg-white">
+<div class="form-pawpals-create form-text form-style col-6 offset-3 p-5 rounded">
   <%= simple_form_for [dog, booking] do |f| %>
     <%= f.input :date, as: :datetime, required: true, html5: true %>
     <%= f.input :my_dog_id, collection: current_user.dogs %>
-    <%= f.button :submit, class: "btn btn-success" %>
+    <%= f.button :submit, class: "btn btn-pawpals" %>
   <% end %>
 </div>
 

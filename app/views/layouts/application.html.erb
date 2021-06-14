@@ -31,7 +31,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body class=" <%= "grey-bg" if controller_name == "dogs" && action_name == "show" %> ">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 

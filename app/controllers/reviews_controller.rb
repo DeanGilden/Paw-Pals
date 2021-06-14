@@ -1,11 +1,12 @@
 class ReviewsController < ApplicationController
   def new
    @review = Review.new
+   @dog = Dog.find(params[:dog_id])
   end
 
   def create
     @review = Review.new(review_params)
-    @dog = dog.find(params[:dog_id])
+    @dog = Dog.find(params[:dog_id])
     @review.dog = @dog
     @review.user = current_user
     if @review.save

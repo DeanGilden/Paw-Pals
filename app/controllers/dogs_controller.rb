@@ -17,6 +17,8 @@ class DogsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { user: @dog.user }),
         image_url: helpers.asset_url('dog.png')
       }]
+    #@reviews = Review.where(dog_id: params[:id])
+    @reviews = @dog.reviews
   end
 
   def new

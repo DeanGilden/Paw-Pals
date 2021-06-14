@@ -1,29 +1,58 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-3 border-right">
-  <%= render 'shared/sidebar' %>
+      <%= render 'shared/sidebar' %>
     </div>
     <div class="col-3">
       <div>
-      <h1 class="pt-3">Your bookings</h1>
+        <h1 class="pt-3">My Requested Invitations</h1>
         <% @my_dogs_bookings.each do |booking| %>
         <div class="container pt-3">
           <div class="card-trip">
-          <%= cl_image_tag booking.their_dog.photos.first.key %>
-          <div class="card-trip-infos">
-            <%= booking.their_dog.name %> and <%= booking.my_dog.name %>
-            <div>
-              <%= booking.date.strftime("%d %B    %H:%M") %>
+            <%= cl_image_tag booking.their_dog.photos.first.key %>
+            <div class="card-trip-infos">
+              <%= booking.their_dog.name %> and <%= booking.my_dog.name %>
+              <div>
+                <%= booking.date.strftime("%d %B    %H:%M") %>
+              </div>
             </div>
+            <div>
+              <% if booking.accepted == nil %>
+              <p>Your Invitation is waiting for a response</p>
+              <% elsif booking.accepted %>
+              <p>Invitation has been accepted</p>
+              <% else %>
+                <p>Invitation Declined</p>
+                <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+              <% end %>
+              </div>
+          <% end %>
           </div>
-        </div>
-          <p class="p-2"><i class="fab fa-whatsapp"></i> Chat on WhatsApp with <%= booking.their_dog.name %>'s human <%= booking.their_dog.user.name %></p>
-          <div class="d-flex justify-content-center">
-            <a class="btn btn-success">Continue to chat</a>
+
+          <h1 class="pt-3">Your Received Invitations</h1>
+          <% @their_dogs_bookings.each do |booking| %>
+          <p>Invite From <%= booking.my_dog.user.name %></p>
+          <p>For a play date between: <%= booking.their_dog.name %> and <%= booking.my_dog.name %></p>
+          <p> <%= booking.date.strftime("%d %B    %H:%M") %>  </p>
+          <div>
+            <% if booking.their_dog.user == current_user && booking.accepted == nil%>
+            <%= link_to "Accept", accept_booking_path(booking), method: :patch %>
+            <%= link_to "Decline", reject_booking_path(booking), method: :patch %>
+            <% elsif booking.accepted %>
+            <p>Booking Accepted</p>
+            <% else %>
+            <p>Booking Declined</p>
+            <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+
+            <% end %>
           </div>
-        <% end %>
+          <br>
+          <% end %>
+
+
         </div>
       </div>
     </div>
+  </div>
 </div>
 </div>

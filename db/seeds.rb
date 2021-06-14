@@ -40,7 +40,7 @@ dog = Dog.new(name: "Lunar", breed: "Siberian Husky", age: 5, temperament: "Ener
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623159371/20210521_181741_2_jjbumc.jpg')
-dog = Dog.new(name: "Jimi", breed: "Chihuahua", age: 1, temperament: "Playful", sex: "Male", description: "Jimi is tiny and cute but is someone who also has plenty of character. He may be small, but he thinks he is a big dog in a small body. Jimi does like things on his terms and if he doesnt want to do something he will be sure to tell you. Jimi is very good in the car, he walks very well on the lead and certainly loves a cuddle, but again only on his terms.", user: user)
+dog = Dog.new(name: "Jimi", breed: "Chihuahua", age: 1, temperament: "Playful", sex: "Male", description: "Jimi is tiny and cute but is someone who also has plenty of character. He may be small, but he thinks he is a big dog in a small body. Jimi does like things on his terms and if he doesnt want to do something he will be sure to tell you. Jimi is very good in the car, he walks very well on the lead and certainly loves a cuddle, but again only on his terms.", user: user2)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623160757/photo-1530281700549-e82e7bf110d6_upsa3g.jpg')

@@ -61,3 +61,43 @@
   color: black;
   padding: 30px;
 }
+
+.card-trip-booking {
+  overflow: hidden;
+  width: 350px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px 10px 10px 10px;
+}
+
+.card-trip-booking > img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.card-trip-booking .card-trip-infos {
+  font-size: 17px;
+  padding-top: 21px;
+  display: flex;
+  margin-bottom: -15px;
+  justify-content: space-evenly;
+
+}
+
+.card-booking-buttons {
+  margin: -5px 0px 25px 0px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.card-pawpal-req {
+    text-align: center;
+    padding: 15px 10px 0px 10px;
+}
+
+.booking-accepted {
+  padding: 10px 10px 26px 20px;
+  text-align: center;
+}

@@ -18,11 +18,19 @@
   font-size: 28px;
   font-weight: 700;
   text-decoration: none;
+  &:hover {
+    color: white;
+  }
 }
 
 .nav-links {
   color: white;
   font-size: 18px;
+  text-decoration: none;
+  transition: 0.5s;
+  &:hover {
+    color: #cc3633;
+  }
 }
 
 .dropdown a {

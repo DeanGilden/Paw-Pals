@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :new, :create ]
     resources :reviews, only: [ :new, :create ]
     resources :favourites, only: [ :new, :create ]
+    member do
+      post 'toggle_favourite', to: "dogs#toggle_favourite"
     end
+  end
   resources :bookings, only: [ :index, :show, :destroy ] do
     member do
       patch :accept
@@ -19,4 +22,5 @@ Rails.application.routes.draw do
     end
   end
   resources :favourites, only: [ :destroy, :index ]
+
 end

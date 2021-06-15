@@ -31,3 +31,33 @@
   width: 290px;
   border-radius: 6px;
 }
+
+.btn-booking {
+  color: black;
+  font-size: 15px;
+  font-weight: lighter;
+  text-decoration: none;
+  transition: 0.3s;
+  &:hover {
+    color: #EB5C5A;
+    text-decoration: none;
+  }
+}
+
+.btn-pawpals-chat {
+  padding: 6px 45px;
+  height: 45px;
+  background-color: #EB5C5A;
+  color: white;
+  border-radius: 50px;
+  font-family: 'Poppins';
+  font-weight: normal;
+  transition: 0.7s;
+  text-decoration: none;
+  &:hover {
+  background-color:  #cc3633;
+  font-weight: normal;
+  text-decoration: none;
+  color: white;
+  }
+}

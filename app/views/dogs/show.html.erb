@@ -45,7 +45,15 @@
   <div class="side-card">
     <p>Temperament</p>
     <div class="content-card">
-    <%= Dog::TEMPERAMENTS[@dog.temperament].html_safe %>
+      <% if @dog.temperament == "Energetic" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "thunderbolt.png", width: 30, height: 30  %>
+          <p class="mx-2 mb-0">Energetic</p>
+        </div>
+      <% end %>
+
+      <%#= Dog::TEMPERAMENTS[@dog.temperament].html_safe %>
+      <% render "temperament", dog: @dog %>
     </div>
   </div>
 

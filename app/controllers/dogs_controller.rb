@@ -4,12 +4,6 @@ class DogsController < ApplicationController
   def index
     if params[:query].present?
       @dogs = User.near(params[:query]).flat_map { |user| user.dogs }
-      @markers = @dogs.geocoded.map do |dog|
-      {
-        lat: dog.latitude,
-        lng: dog.longitude
-      }
-    end
     else
       @dogs = Dog.all
     end

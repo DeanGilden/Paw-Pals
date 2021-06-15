@@ -10,10 +10,10 @@
     <div class="d-flex justify-content-between">
         <p class="breed-margin-left"><%= @dog.breed %></p>
         <p class="age-margin-right"><%= @dog.age %> years old</p>
-        <i class="fas fa-heart"></i>
 
-        <%= link_to dog_favourites_path(@dog), method: :post do %>
-          <i class="far fa-heart"></i>
+
+        <%= link_to toggle_favourite_dog_path(@dog), remote: true, method: :post do %>
+          <i class="fas fa-heart like-icon <%= 'red' if current_user.favorited?(@dog) %>" data-id="<%= @dog.id %>"></i>
         <% end %>
     </div>
       <%= cl_image_tag @dog.photos.first.key, class: "mx-auto d-block dog-img" %>

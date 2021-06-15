@@ -48,6 +48,11 @@ class DogsController < ApplicationController
     redirect_to dogs_path
   end
 
+  def toggle_favourite
+    @dog = Dog.find_by(id: params[:id])
+    current_user.favorited?(@dog) ? current_user.unfavorite(@dog) : current_user.favorite(@dog)
+  end
+
 private
 
   def set_dog

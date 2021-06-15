@@ -11,6 +11,7 @@ class Dog < ApplicationRecord
   validates :sex, presence: true
   validates :temperament, presence: true
   validates :description, presence: true, length: { minimum: 80 }
+  acts_as_favoritable
   # validates :images, presence: true
   TEMPERAMENTS = {"Playful" => '🥎 Playful 🥎', "Timid" => '😳 Timid 😳', "Grumpy" => '😠 Grumpy 😠', "Energetic" => '⚡ Energetic ⚡', "Lazy" => '🦥 Lazy 🦥', "Wild" => '🐾 Wild 🐾', "Defensive" => '🛡 Defensive 🛡', "Diva" => '💅 Diva 💅', "Relaxed" => '😎 Relaxed 😎', "Sensitive" => '😰 Sensitive 😰'}
 end

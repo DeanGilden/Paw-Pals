@@ -1,9 +1,10 @@
-class Favourite < ApplicationRecord
-  belongs_to :user
-  belongs_to :dog
+# frozen_string_literal: true
+
+class Favorite < ApplicationRecord
+  extend ActsAsFavoritor::FavoriteScopes
+
   belongs_to :favoritable, polymorphic: true
   belongs_to :favoritor, polymorphic: true
-  validates :dog, uniqueness: { scope: :user }
 
   def block!
     update!(blocked: true)

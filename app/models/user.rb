@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :my_dogs_bookings, through: :dogs, source: :my_bookings
   has_many :bookings_for_other_dogs, through: :dogs, source: :their_bookings
+  has_many :chatrooms, dependent: :destroy
+  has_many :other_chatrooms, foreign_key: "other_user_id", class_name: "User"
+
 
   # validates :name, :avatar, :address, presence: true
   # validates :contact_number, uniqueness: true
@@ -18,4 +21,5 @@ class User < ApplicationRecord
   validates :contact_number, uniqueness: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  acts_as_favoritor
 end

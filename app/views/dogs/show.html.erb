@@ -10,10 +10,10 @@
     <div class="d-flex justify-content-between">
         <p class="breed-margin-left"><%= @dog.breed %></p>
         <p class="age-margin-right"><%= @dog.age %> years old</p>
-        <i class="fas fa-heart"></i>
 
-        <%= link_to dog_favourites_path(@dog), method: :post do %>
-          <i class="far fa-heart"></i>
+
+        <%= link_to toggle_favourite_dog_path(@dog), remote: true, method: :post do %>
+          <i class="fas fa-heart like-icon <%= 'red' if current_user.favorited?(@dog) %>" data-id="<%= @dog.id %>"></i>
         <% end %>
     </div>
       <%= cl_image_tag @dog.photos.first.key, class: "mx-auto d-block dog-img" %>
@@ -45,7 +45,15 @@
   <div class="side-card">
     <p>Temperament</p>
     <div class="content-card">
-    <%= Dog::TEMPERAMENTS[@dog.temperament].html_safe %>
+      <% if @dog.temperament == "Energetic" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "thunderbolt.png", width: 30, height: 30  %>
+          <p class="mx-2 mb-0">Energetic</p>
+        </div>
+      <% end %>
+
+      <%#= Dog::TEMPERAMENTS[@dog.temperament].html_safe %>
+      <% render "temperament", dog: @dog %>
     </div>
   </div>
 

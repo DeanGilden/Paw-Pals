@@ -23,7 +23,12 @@
             <% if booking.accepted == nil %>
             <p class="invitation-text">Your Invitation is awaiting a response from <%= booking.their_dog.user.name %></p>
           </div>
-
+          <% room = Chatroom.where(user: current_user, other_user: booking.their_dog.user).or(Chatroom.where(user: booking.their_dog.user)).first %>
+          <% if room %>
+            <%= link_to "chat", chatroom_path(room)  %>
+          <% else %>
+            <%= link_to "chat", chatrooms_path(other_user: booking.their_dog.user), method: :post %>
+          <% end %>
           <!-- buttons -->
           <div class="card-booking-buttons">
             <%= link_to 'Cancel invitation', booking_path(booking), method: :delete, class: "btn-pawpals" %>
@@ -36,6 +41,8 @@
             <% end %>
             <%= link_to 'Write a review', new_dog_review_path(booking.their_dog), class: "btn-pawpals" if booking.accepted && booking.date.past? && booking.date != nil   %>
           </div>
+
+
         </div>
         <% end %>
       </div>

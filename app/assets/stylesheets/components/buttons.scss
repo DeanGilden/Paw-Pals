@@ -53,10 +53,24 @@
   color: #cc3633;
   font-weight: normal;
   text-decoration: none;
+    }
+  }
+
+.btn-booking {
+  color: black;
+  font-size: 15px;
+  font-weight: lighter;
+  text-decoration: none;
+  transition: 0.3s;
+  &:hover {
+    color: #EB5C5A;
+    text-decoration: none;
+
   }
 }
 
 .btn-pawpals-chat {
+
   width: 215px;
   background-color: #5a9beb;
   padding: 10px;

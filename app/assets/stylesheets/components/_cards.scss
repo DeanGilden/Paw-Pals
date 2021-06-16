@@ -62,4 +62,56 @@
   padding: 30px;
 }
 
+.card-booking-buttons {
+  margin: -5px 0px 25px 0px;
+  text-align: center;
+  font-size: 15px;
+}
 
+.card-pawpal-req {
+    text-align: center;
+    padding: 15px 10px 0px 10px;
+}
+
+.booking-accepted {
+  padding: 10px 10px 26px 20px;
+  text-align: center;
+}
+
+.pawpal-card {
+  background-color: #EB5C5A;
+  height: 580px;
+  width: 400px;
+  color: white;
+  font-size: 12px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+.pawpal-avatar-div {
+  position: relative;
+  top: 5px;
+}
+
+.pawpal-card-content {
+  background-color: white;
+  padding: 20px;
+  color: black;
+  height: 190px;
+  font-weight: 300;
+  border-radius: 15px;
+  position: relative;
+  top: 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+.and-position {
+  position: relative;
+  top: 65px;
+  font-size: 18px;
+}

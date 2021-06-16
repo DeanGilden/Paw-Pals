@@ -1,13 +1,14 @@
 .card-trip-booking {
   overflow: hidden;
-  width: 350px;
+  height: 580px;
+  width: 400px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px 10px 10px 10px;
 }
 
 .card-trip-booking > img {
-  height: 350px;
+  height: 400px;
   width: 100%;
   object-fit: cover;
   border-radius: 10px 10px 0px 0px;
@@ -27,6 +28,8 @@
   margin: -5px 0px 25px 0px;
   text-align: center;
   font-size: 15px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .card-pawpal-req {
@@ -35,7 +38,7 @@
 }
 
 .booking-accepted {
-  padding: 10px 10px 25px 20px;
+  padding: 10px 10px 10px 20px;
   text-align: center;
 }
 
@@ -44,7 +47,7 @@
     font-weight: 300;
     padding: 0px 10px;
     font-size: 15px;
-    margin-bottom: -3px;
+    margin-bottom: 10px;
 }
 
 .chat-spacing {
@@ -55,6 +58,10 @@
 
 .booking-text {
   font-size: 17px;
+}
+
+.margin-top-delete {
+  margin-top: 10px;
 }
 
 

@@ -6,3 +6,23 @@
 .red {
   color: red;
 }
+.flex-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.favourite-card {
+  margin: 10px;
+  img {
+
+    object-fit: cover;
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+  }
+}
+.remove-button {
+  background-color: #EB5C5A;
+  color: white;
+  border-radius: 8px;
+}

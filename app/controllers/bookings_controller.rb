@@ -43,6 +43,10 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def requests
+    @their_dogs_bookings = current_user.bookings_for_other_dogs
+  end
+
   private
 
   def set_booking

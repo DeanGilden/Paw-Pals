@@ -27,6 +27,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initChatroomCable } from '../channels/chatroom_channel';
+import { initSweetalert } from '../components/pop-up';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -36,4 +37,9 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initChatroomCable();
+  initSweetalert('#create-dog-btn', {
+    title: "A nice alert",
+    text: "This is a great alert, isn't it?",
+    icon: "success"
+  });
 });

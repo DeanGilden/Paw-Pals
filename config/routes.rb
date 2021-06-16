@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       patch :reject
     end
   end
+  get "requests", to: "bookings#requests"
   resources :reviews, only: [ :destroy ]
   resources :users, only: [ :show, :destroy ] do
     member do

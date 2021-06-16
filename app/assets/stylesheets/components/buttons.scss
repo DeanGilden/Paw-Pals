@@ -56,21 +56,7 @@
     }
   }
 
-.btn-booking {
-  color: black;
-  font-size: 15px;
-  font-weight: lighter;
-  text-decoration: none;
-  transition: 0.3s;
-  &:hover {
-    color: #EB5C5A;
-    text-decoration: none;
-
-  }
-}
-
 .btn-pawpals-chat {
-
   width: 215px;
   background-color: #5a9beb;
   padding: 10px;
@@ -85,22 +71,63 @@
   font-weight: normal;
   text-decoration: none;
   opacity: 0.7;
-
   }
 }
 
-.booking-buttons {
-  width: 215px;
-  background-color: #eb5c5a;
+.btn-pawpals-chat-booking {
+  width: 150px;
+  background-color: #5a9beb;
   padding: 10px;
   border-radius: 10px;
   color: white;
   margin-top: 10px;
-  transition: 0.5s;
-  &:hover {
+  transition: 0.7s;
   text-decoration: none;
+  &:hover {
+  background-color: #5a9beb;
   color: white;
+  font-weight: normal;
   text-decoration: none;
   opacity: 0.7;
   }
 }
+
+.btn-pawpals-booking {
+  width: 150px;
+  background-color: #EB5C5A;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  transition: 0.7s;
+  text-decoration: none;
+  &:hover {
+  background-color: #cc3633;
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+  opacity: 0.7;
+  }
+}
+
+.btn-pawpals-booking-delete {
+  margin-top: 10px;
+  width: 150px;
+  background-color: #EB5C5A;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  margin-top: 10px;
+  transition: 0.7s;
+  text-decoration: none;
+  &:hover {
+  background-color: #cc3633;
+  color: white;
+  font-weight: normal;
+  text-decoration: none;
+  opacity: 0.7;
+  }
+}
+
+
+

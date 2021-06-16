@@ -4,19 +4,19 @@
 
   <div class="col-md-8 dog-profile">
     <div class="d-flex justify-content-between align-items-center">
-    <h1 class="dog-profile-header"><%= @dog.name %></h1>
-    <%= link_to 'Request a meet up', new_dog_booking_path(@dog), class: "btn-pawpals mr-3" if @dog.user != current_user %>
+      <h1 class="dog-profile-header"><%= @dog.name %></h1>
+      <%= link_to 'Request a meet up', new_dog_booking_path(@dog), class: "btn-pawpals mr-3" if @dog.user != current_user %>
     </div>
     <div class="d-flex justify-content-between">
-        <p class="breed-margin-left"><%= @dog.breed %></p>
-        <p class="age-margin-right"><%= @dog.age %> years old</p>
+      <p class="breed-margin-left"><%= @dog.breed %></p>
+      <p class="age-margin-right"><%= @dog.age %> years old</p>
 
 
-        <%= link_to toggle_favourite_dog_path(@dog), remote: true, method: :post do %>
-          <i class="fas fa-heart like-icon <%= 'red' if current_user.favorited?(@dog) %>" data-id="<%= @dog.id %>"></i>
-        <% end %>
+      <%= link_to toggle_favourite_dog_path(@dog), remote: true, method: :post do %>
+        <i class="fas fa-heart like-icon <%= 'red' if current_user.favorited?(@dog) %>" data-id="<%= @dog.id %>"></i>
+      <% end %>
     </div>
-      <%= cl_image_tag @dog.photos.first.key, class: "mx-auto d-block dog-img" %>
+    <%= cl_image_tag @dog.photos.first.key, class: "mx-auto d-block dog-img" %>
 
     <!-- Dog Description -->
     <div>
@@ -25,108 +25,55 @@
     </div>
   </div>
 
-  <!-- Reviews -->
-
-  <!-- Side Content-->
 
   <div class="side-content-container col-md-3">
-
-    <!-- Map -->
     <div class="side-card ">
       <p>Location</p>
       <div id="map"
       style="width: 100%; height: 450px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
-  </div>
 
-  <!-- Temperament -->
-  <div class="side-card">
-    <p>Temperament</p>
-    <div class="content-card">
-      <% if @dog.temperament == "Playful" %>
+    <div class="side-card">
+      <p>Temperament</p>
+      <div class="content-card">
         <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "playful.png", width: 30, height: 30 %>
-          <p class="mx-2 mb-0">Playful</p>
-      <% elsif @dog.temperament == "Timid" %>
-        <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "timid.png", width: 30, height: 30 %>
-          <p class="mx-2 mb-0">Timid</p>
+          <%= image_tag "#{@dog.temperament.downcase}.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0"><%= @dog.temperament %></p>
         </div>
-      <% elsif @dog.temperament == "Grumpy" %>
-        <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "grumpy.png", width: 30, height: 30 %>
-          <p class="mx-2 mb-0">Grumpy</p>
-        </div>
-      <% elsif @dog.temperament == "Energetic" %>
-        <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "thunderbolt.png", width: 30, height: 30  %>
-          <p class="mx-2 mb-0">Energetic</p>
-      <% elsif @dog.temperament == "Lazy" %>
-        <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "lazy.png", width: 30, height: 30 %>
-          <p class="mx-2 mb-0">Lazy</p>
-        </div>
-      <% elsif @dog.temperament == "Wild" %>
-        <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "wild.png", width: 30, height: 30 %>
-          <p class="mx-2 mb-0">Wild</p>
-        </div>
-      <% elsif @dog.temperament == "Defensive" %>
-        <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "defensive.png", width: 30, height: 30 %>
-          <p class="mx-2 mb-0">Defensive</p>
-        </div>
-      <% elsif @dog.temperament == "Diva" %>
-        <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "diva.png", width: 30, height: 30 %>
-          <p class="mx-2 mb-0">Diva</p>
-        </div>
-      <% elsif @dog.temperament == "Relaxed" %>
-        <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "relaxed.png", width: 30, height: 30 %>
-          <p class="mx-2 mb-0">Relaxed</p>
-        </div>
-      <% elsif @dog.temperament == "Sensitive" %>
-        <div class="d-flex justify-content-center align-items-center">
-          <%= image_tag "sensitive.png", width: 30, height: 30 %>
-          <p class="mx-2 mb-0">Sensitive</p>
-        </div>
-      <% end %>
-      <% render "temperament", dog: @dog %>
+      </div>
     </div>
-  </div>
 
-  <!-- Owner -->
-  <div class="side-card">
+    <div class="side-card">
       <p>Owner</p>
       <div class="content-card d-flex flex-column align-items-center">
-      <%= cl_image_tag @dog.user.photo.key, class: "user-show-avatar" %>
-      <h5 class="mt-3"><%= @dog.user.name %></h5>
+        <%= cl_image_tag @dog.user.photo.key, class: "user-show-avatar" %>
+        <h5 class="mt-3"><%= @dog.user.name %></h5>
+      </div>
     </div>
   </div>
-
 </div>
 
-</div>
+
 
 <div class="show-container d-flex justify-content-center mb-4">
   <div class="col-md-8 dog-profile">
     <h2>Reviews</h2>
-      <% @reviews.each do |review| %>
-        <div class="review-card d-flex p-3">
-          <%= cl_image_tag @dog.user.photo.key, class: "review-avatar mr-5" %>
-          <div class="review-content">
-            <%= review.content %>
-            <div class="review-stars mt-3">
-              <% 5.times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-            </div>
+    <% @reviews.each do |review| %>
+      <div class="review-card d-flex p-3">
+        <%= cl_image_tag @dog.user.photo.key, class: "review-avatar mr-5" %>
+        <div class="review-content">
+          <%= review.content %>
+          <div class="review-stars mt-3">
+            <% 5.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
           </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
   </div>
   <div class="side-content-container col-md-3"></div>
   <!-- empty side bar -->

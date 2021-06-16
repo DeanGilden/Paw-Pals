@@ -22,9 +22,16 @@
           </div>
 
           <div class="booking-accepted">
+            <% room = Chatroom.where(user: current_user, other_user: booking.their_dog.user).or(Chatroom.where(user: booking.their_dog.user)).first %>
+            <% if room %>
+              <%= link_to "chat", chatroom_path(room)  %>
+            <% else %>
+              <%= link_to "chat", chatrooms_path(other_user: booking.their_dog.user), method: :post %>
+            <% end %>
             <% if booking.accepted == nil %>
             <p class="invitation-text">Your Invitation is awaiting a response from <%= booking.their_dog.user.name %></p>
           </div>
+
           <div class="chat-spacing">
           <% room = Chatroom.where(user: current_user, other_user: booking.their_dog.user).or(Chatroom.where(user: booking.their_dog.user)).first %>
           <% if room %>
@@ -33,6 +40,7 @@
             <%= link_to "Chat", chatrooms_path(other_user: booking.their_dog.user), class: "btn-booking", method: :post %>
           <% end %>
           </div>
+
           <!-- buttons -->
           <div class="card-booking-buttons">
             <%= link_to 'Cancel invitation', booking_path(booking), method: :delete, class: "btn-booking" %>
@@ -91,6 +99,53 @@
               </div>
 
             </div>
+
+
+
+            <div class="card-booking-buttons">
+              <% room = Chatroom.where(other_user: current_user, user: booking.my_dog.user).or(Chatroom.where(user: current_user)).first %>
+              <% if room %>
+                <%= link_to "chat", chatroom_path(room)  %>
+              <% else %>
+                <%= link_to "chat", chatrooms_path(other_user: booking.my_dog.user), method: :post %>
+              <% end %>
+            <% if booking.their_dog.user == current_user && booking.accepted == nil%>
+            <%= link_to "Accept", accept_booking_path(booking), method: :patch %>
+            <%= link_to "Decline", reject_booking_path(booking), method: :patch %>
+            <% elsif booking.accepted %>
+            <p>Booking Accepted</p>
+              <%= link_to 'Cancel meet up', booking_path(booking), method: :delete, class: "btn-pawpals" unless booking.date.past? %>
+            <% else %>
+            <p>Booking Declined</p>
+              <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+            <% end %>
+            <%= link_to 'Write a review', new_dog_review_path(booking.my_dog), class: "btn-pawpals" if booking.accepted && booking.date.past? && booking.date != nil   %>
+          </div>
+
+          </div>
+          <% end %>
+        </div>
+
+
+
+<!-- old card -->
+
+  <!--           <h2 class="pt-3">Your Received Invitations</h2>
+          <% @their_dogs_bookings.each do |booking| %>
+          <p>Invite From <%= booking.my_dog.user.name %></p>
+          <p>For a play date between: <%= booking.their_dog.name %> and <%= booking.my_dog.name %></p>
+          <p> <%= booking.date.strftime("%d %B    %H:%M") %>  </p>
+          <div>
+            <% if booking.their_dog.user == current_user && booking.accepted == nil%>
+            <%= link_to "Accept", accept_booking_path(booking), method: :patch %>
+            <%= link_to "Decline", reject_booking_path(booking), method: :patch %>
+            <% elsif booking.accepted %>
+            <p>Booking Accepted</p>
+              <%= link_to 'Cancel meet up', booking_path(booking), method: :delete, class: "btn-pawpals" unless booking.date.past? %>
+            <% else %>
+            <p>Booking Declined</p>
+              <%= link_to 'Delete', booking_path(booking), method: :delete, class: "btn-pawpals" %>
+
             <% end %>
           </div>
 

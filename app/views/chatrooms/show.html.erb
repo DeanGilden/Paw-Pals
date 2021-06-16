@@ -1,16 +1,29 @@
-<h1>#<%= @chatroom.name %></h1>
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.name %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
-    </div>
-  <% end %>
-</div>
+ <div class="container">
+  <div class="chat-header">
+    <h1>#<%= @chatroom.name %></h1>
+  </div>
+  <div class="messages" id="messages" data-chatroom-id="<%= @chatroom.id %>">
+    <% @chatroom.messages.each do |message| %>
+      <div class="message-container message <%= message.user != current_user ? "right" : "" %>" id="message-<%= message.id %>">
+        <div >
+          <i class="author">
+            <span><%= message.user.name %></span>
+            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+          </i>
+          <%= cl_image_tag message.user.photo.key, class: "avatar" %>
+        </div>
+        <div class="message-content">
+          <p><%= message.content %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-<% end %>
+
+  <div id="create-message">
+  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+  <% end %>
+  </div>
+
+

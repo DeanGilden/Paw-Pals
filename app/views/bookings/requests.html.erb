@@ -50,7 +50,7 @@
                   <!-- Chat Button -->
                   <% room = Chatroom.where(other_user: current_user, user: booking.my_dog.user).or(Chatroom.where(user: current_user)).first %>
                   <% if room %>
-                    <%= link_to "Chat", chatroom_path(room), method: :post, class: "btn-pawpals-chat-booking"  %>
+                    <%= link_to "Chat", chatroom_path(room), class: "btn-pawpals-chat-booking"  %>
                   <% else %>
                     <%= link_to "Chat", chatrooms_path(other_user: booking.my_dog.user), method: :post, class: "btn-pawpals-chat-booking" %>
                   <% end %>

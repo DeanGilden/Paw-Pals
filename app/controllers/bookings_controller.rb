@@ -35,12 +35,12 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.update(accepted: true)
-    redirect_to bookings_path
+    redirect_to requests_path
   end
 
   def reject
     @booking.update(accepted: false)
-    redirect_to bookings_path
+    redirect_to requests_path
   end
 
   def requests

@@ -1,7 +1,11 @@
 .like-icon {
-  font-size: 3rem;
+  font-size: 2rem;
   color: grey;
   margin-right: 20px;
+  transition: 0.7s;
+  &:hover {
+    color: red;
+  }
 }
 .red {
   color: red;

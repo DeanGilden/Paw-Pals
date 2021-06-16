@@ -45,14 +45,55 @@
   <div class="side-card">
     <p>Temperament</p>
     <div class="content-card">
-      <% if @dog.temperament == "Energetic" %>
+      <% if @dog.temperament == "Playful" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "playful.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0">Playful</p>
+      <% elsif @dog.temperament == "Timid" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "timid.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0">Timid</p>
+        </div>
+      <% elsif @dog.temperament == "Grumpy" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "grumpy.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0">Grumpy</p>
+        </div>
+      <% elsif @dog.temperament == "Energetic" %>
         <div class="d-flex justify-content-center align-items-center">
           <%= image_tag "thunderbolt.png", width: 30, height: 30  %>
           <p class="mx-2 mb-0">Energetic</p>
+      <% elsif @dog.temperament == "Lazy" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "lazy.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0">Lazy</p>
+        </div>
+      <% elsif @dog.temperament == "Wild" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "wild.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0">Wild</p>
+        </div>
+      <% elsif @dog.temperament == "Defensive" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "defensive.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0">Defensive</p>
+        </div>
+      <% elsif @dog.temperament == "Diva" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "diva.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0">Diva</p>
+        </div>
+      <% elsif @dog.temperament == "Relaxed" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "relaxed.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0">Relaxed</p>
+        </div>
+      <% elsif @dog.temperament == "Sensitive" %>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= image_tag "sensitive.png", width: 30, height: 30 %>
+          <p class="mx-2 mb-0">Sensitive</p>
         </div>
       <% end %>
-
-      <%#= Dog::TEMPERAMENTS[@dog.temperament].html_safe %>
       <% render "temperament", dog: @dog %>
     </div>
   </div>

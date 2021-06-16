@@ -9,30 +9,24 @@
       <p> Here you will be able to see your favourited dogs</p>
 
       <div class="container">
-        <div class="cards">
+        <div class="flex-row">
           <% @favorite_dogs.each do |favourite| %>
-
-
-          <%= link_to dog_path(favourite) do %>
-              <%= link_to "destroy", favourite_path(favourite), method: :delete %>
-            <div class="card-trip">
+            <div class="favourite-card">
               <% if favourite.photos %>
-                <%= cl_image_tag favourite.photos.first.key %>
+                <%= link_to dog_path(favourite) do %>
+                  <%= cl_image_tag favourite.photos.first.key %>
+                <% end %>
               <% end %>
-              <div class="card-trip-infos">
-                <div>
-                  <h2> <%= favourite.name %> </h2>
-                  <p> <%= favourite.breed %> </p>
-                </div>
-                <div>
-                  <p><%= favourite.age %> Years Old </p>
-                </div>
+              <div>
+                  <h2 class="text-center"><%= favourite.name %> </h2>
+                  <p class="text-center"><%= favourite.breed %> </p>
+                  <p class="text-center"><%= favourite.age %> Years Old </p>
+              <p class="text-center"><%= link_to "Remove", favourite_path(favourite), method: :delete, class: 'btn remove-button' %></p>
               </div>
             </div>
-            <% end %>
           <% end %>
         </div>
+      </div>
     </div>
   </div>
-</div>
 

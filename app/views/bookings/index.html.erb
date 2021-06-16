@@ -32,14 +32,7 @@
             <p class="invitation-text">Your Invitation is awaiting a response from <%= booking.their_dog.user.name %></p>
           </div>
 
-          <div class="chat-spacing">
-          <% room = Chatroom.where(user: current_user, other_user: booking.their_dog.user).or(Chatroom.where(user: booking.their_dog.user)).first %>
-          <% if room %>
-            <%= link_to "Chat", chatroom_path(room), class: "btn-pawpals-chat" %>
-          <% else %>
-            <%= link_to "Chat", chatrooms_path(other_user: booking.their_dog.user), class: "btn-booking", method: :post %>
-          <% end %>
-          </div>
+
 
           <!-- buttons -->
           <div class="card-booking-buttons">
@@ -145,6 +138,7 @@
             </div>
           </div>
           <% end %>
+        <% end %>
       </div>
     </div>
 </div>

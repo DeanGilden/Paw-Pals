@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :bookings_for_other_dogs, through: :dogs, source: :their_bookings
   has_many :chatrooms, dependent: :destroy
   has_many :other_chatrooms, foreign_key: "other_user_id", class_name: "Chatroom", dependent: :destroy
+  # has_many :messages
 
   # validates :name, :avatar, :address, presence: true
   # validates :contact_number, uniqueness: true

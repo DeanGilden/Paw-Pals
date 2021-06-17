@@ -112,4 +112,16 @@ dog = Dog.new(name:"Doris", breed: "Yorkshire Terrier", age: 2, temperament: "Ti
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 
+file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623944335/Beagle-puppy-standing-in-the-grass-1_xag4pk.jpg')
+dog = Dog.new(name:" Benny", breed: "Beagle", age: 1, temperament: "Playful", sex: "Male", description: "Benny is a playful dog hoping to make lots of new paw pals. His human has just moved to the area and is keen for him to have regular play dates to continue his successful socialisation.", user: user3)
+dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
+dog.save!
+file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623944501/Affenpinscher-puppy_omuywr.jpg')
+dog = Dog.new(name:"Aipom", breed: "Affenpinscher", age: 1, temperament: "Wild", sex: "Male", description: "This little guy is very excitable and wild. He needs to meet some dogs with a similar temperament to ensure he can burn his energy and is not too much for other shyer, calmer dogs", user: user2)
+dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
+dog.save!
+file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623944670/JackRussellTerriers_k1og4a.jpg')
+dog = Dog.new(name:"Alexander", breed: "Jack Russell Terrier", age: 9, temperament: "Grumpy", sex: "Male", description: "Alexander is a cute little guy with plenty of attitude. He needs to meet only calm dogs as he is easily irritated by other dogs and can be rather grumpy!.", user: user2)
+dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
+dog.save!
 puts "Finished Creating Dogs!"

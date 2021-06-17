@@ -30,7 +30,7 @@ class DogsController < ApplicationController
     @dog.user = current_user
     if @dog.save
       sleep(2)
-      redirect_to dog_path(@dog)
+      redirect_to dogs_path
     else
       render :new
     end

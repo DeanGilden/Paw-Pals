@@ -24,8 +24,8 @@ user2 = User.new(name: "Robyn Ellison", address: "Cambridge", contact_number: "0
 user2.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 user2.save!
 
-file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1622215117/85hbbudq7d5j50b82zlnb1595equ.jpg')
-user3 = User.new(name: "Dean Gilden", address: "paris", contact_number: "07944377443", email: "dg@test.co.uk", password: "123456")
+file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623920047/yon_cpu9oj.jpg')
+user3 = User.new(name: "Yon Rospigliosi", address: "Paris", contact_number: "07944377443", email: "dg@test.co.uk", password: "123456")
 user3.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 user3.save!
 puts "Finished Creating Users"
@@ -45,7 +45,7 @@ dog = Dog.new(name: "Jimi", breed: "Chihuahua", age: 1, temperament: "Playful", 
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623160757/photo-1530281700549-e82e7bf110d6_upsa3g.jpg')
-dog = Dog.new(name:"Susan", breed: "Cocker Spaniel", age: 3, temperament: "Wild", sex: "Female" , description: "Susan is an energetic 5 year old working cocker cross springer spaniel who loves to be busy. She requires a good balance of physical exercise, training activities and mental stimulation and so would suit a PawPal of a similar type. Sampson enjoys practicing agility in the park, and has started learning some basic gun dog skills to keep her brain engaged.", user: user)
+dog = Dog.new(name:"Susan", breed: "Cocker Spaniel", age: 3, temperament: "Wild", sex: "Female" , description: "Susan is an energetic 5 year old working cocker cross springer spaniel who loves to be busy. She requires a good balance of physical exercise, training activities and mental stimulation and so would suit a PawPal of a similar type. Sampson enjoys practicing agility in the park, and has started learning some basic gun dog skills to keep her brain engaged.", user: user2)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623161363/josephine-menge-h7VBJRBcieM-unsplash_lmfczw.jpg')
@@ -53,11 +53,11 @@ dog = Dog.new(name:"Mabel", breed: "Border-Collie", age: 7, temperament: "Relaxe
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623161636/photo-1617031115609-b1b9f58cd932_urigab.jpg')
-dog = Dog.new(name:"Bernard", breed: "Border Terrier", age: 8, temperament: "Sensitive", sex: "Male" , description: "Bernard is a sensitive little man who hasn't had the best journey in life so far, he does take a while to warm up to people but once he has a bond with you, he enjoys the fuss and attention. Bernard is a fun loving dog who will show you in time, he loves spending his days playing with squeaky toys or zooming around the garden! The way to Bernards heart is through food, he'll let you know when it's dinner time by barking excitedly!", user: user)
+dog = Dog.new(name:"Bernard", breed: "Border Terrier", age: 8, temperament: "Sensitive", sex: "Male" , description: "Bernard is a sensitive little man who hasn't had the best journey in life so far, he does take a while to warm up to people but once he has a bond with you, he enjoys the fuss and attention. Bernard is a fun loving dog who will show you in time, he loves spending his days playing with squeaky toys or zooming around the garden! The way to Bernards heart is through food, he'll let you know when it's dinner time by barking excitedly!", user: user2)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623161914/hrihorii-sheldunov-9_H3ss1ko4c-unsplash_ote4xu.jpg')
-dog = Dog.new(name:"Teddy", breed: "Akita", age: 5, temperament: "Timid", sex: "Male" , description: "Teddy is very enthusiastic about life and shows his cheeky personality to everyone he knows. He has been receiving training weekly with a dog trainer and is thriving. His love of food and toys are certainly the way to make friends with him as it does take him some time to warm up to new people and he isn't going to love everyone. He has been socialising well with other dogs during his time here which will need carefully continuing once home.", user: user)
+dog = Dog.new(name:"Teddy", breed: "Akita", age: 5, temperament: "Timid", sex: "Male" , description: "Teddy is very enthusiastic about life and shows his cheeky personality to everyone he knows. He has been receiving training weekly with a dog trainer and is thriving. His love of food and toys are certainly the way to make friends with him as it does take him some time to warm up to new people and he isn't going to love everyone. He has been socialising well with other dogs during his time here which will need carefully continuing once home.", user: user2)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623162032/vidhey-pv-p7W5fTRMGO8-unsplash_hpe1nu.jpg')
@@ -69,7 +69,15 @@ dog = Dog.new(name:"Max", breed: "Pomeranian", age: 3, temperament: "Diva", sex:
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623392905/henry-ravenscroft-cdkocPV7LKY-unsplash_ozzgta.jpg')
-dog = Dog.new(name:"Lemon", breed: "Staffordshire Bull Terrier", age: 9, temperament: "Lazy", sex: "Female", description: "Lemon is your typical loving and caring 10 year old Staffordshire Bull Terrier in search of her forever friend. He is your typical staffy who has a huge stomach for tasty treats and will settle with a nice kong filled with lots of goodies! She is an older girl who prefers shorter walks followed by lots of cuddles and fuss!", user: user)
+dog = Dog.new(name:"Lemon", breed: "Staffordshire Bull Terrier", age: 9, temperament: "Lazy", sex: "Female", description: "Lemon is your typical loving and caring 10 year old Staffordshire Bull Terrier in search of her forever friend. He is your typical staffy who has a huge stomach for tasty treats and will settle with a nice kong filled with lots of goodies! She is an older girl who prefers shorter walks followed by lots of cuddles and fuss!", user: user3)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
+file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623920860/rafael-forseck-Mlrc9NwoZFk-unsplash_s92v7j.jpg')
+dog = Dog.new(name:"Steve", breed: "Dalmatian", age: 9, temperament: "Defensive", sex: "Male", description: "Steve is a gorgeous boy who is currently finding life just a little overwhelming. He has an affectionate personality but needs an understanding PawPal that are willing to help him settle so he can feel comfortable and be his true self. He loves his toys will really start to show his personality when he's relaxed.", user: user2)
+dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
+dog.save!
+
+
+
+
 puts "Finished Creating Dogs!"

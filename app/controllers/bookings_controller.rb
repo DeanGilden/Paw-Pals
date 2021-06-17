@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.their_dog = @dog
     # @booking.my_dog_id = booking_params[:my_dog]
     if @booking.save
-      sleep(2)
+      sleep(4)
       redirect_to bookings_path
     else
       render :new #"dogs/show"

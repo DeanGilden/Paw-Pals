@@ -8,28 +8,32 @@ body {
 
 .show-container {
   width: 100%;
-  margin: 30px 20px -15px 20px;
+  margin: 30px 20px -15px 0px;
 }
 
 .dog-profile {
   background-color: white;
   border-radius: 20px;
-  margin-right: 35px;
-  padding: 20px;
+  margin-right: 20px;
+  padding: 20px 40px 50px 20px;
+}
+
+.dog-profile-margin-top {
+  margin-top: 20px;
 }
 
 .side-content-container {
 }
 
-.dog-img { max-width: 60%; height: auto; }
+.dog-img { max-width:30%; height: auto; border-radius: 10px;}
 
 
 .dog-profile-text {
-  padding: 5px 50px;
+  padding: 5px 0px 5px 60px;
 }
 
 .dog-profile-header {
-  padding: 25px 40px 0px 40px;
+  padding: 30px 20px 0px 48px;
 }
 
 .breed-margin-left {
@@ -40,3 +44,6 @@ body {
   margin-right: 45px;
 }
 
+.padding-dog-img {
+  padding-left: 40px;
+}

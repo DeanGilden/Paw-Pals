@@ -1,32 +1,56 @@
 <div class="show-container d-flex justify-content-center">
 
   <!-- Dog Profile -->
+  <div class="col-md-8">
+    <div class="dog-profile">
+      <div class="d-flex justify-content-between align-items-center">
+        <h1 class="dog-profile-header"><%= @dog.name %></h1>
+        <%= link_to 'Request a meet up', new_dog_booking_path(@dog), class: "btn-pawpals mr-3" if @dog.user != current_user %>
+      </div>
+      <div class="d-flex justify-content-between mb-4">
+        <p class="breed-margin-left"><%= @dog.breed %></p>
+        <p class="age-margin-right"><%= @dog.age %> years old</p>
 
-  <div class="col-md-8 dog-profile">
-    <div class="d-flex justify-content-between align-items-center">
-      <h1 class="dog-profile-header"><%= @dog.name %></h1>
-      <%= link_to 'Request a meet up', new_dog_booking_path(@dog), class: "btn-pawpals mr-3" if @dog.user != current_user %>
+
+        <%= link_to toggle_favourite_dog_path(@dog), remote: true, method: :post do %>
+          <i class="fas fa-heart like-icon <%= 'red' if current_user.favorited?(@dog) %>" data-id="<%= @dog.id %>"></i>
+        <% end %>
+      </div>
+
+      <div class="d-flex justify-content-between padding-dog-img">
+       <% if @dog.photos.any? %>
+        <%= cl_image_tag @dog.photos.first.key, class: "mx-auto d-block dog-img" %>
+        <% else %>
+        <%= image_tag "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623928605/melon_dog_vmg3vk.jpg", alt: "alttext", class: "mx-auto d-block dog-img" %>
+        <% end %>
+      <!-- Dog Description -->
+      <div class="">
+        <h2 class="dog-profile-header">More About <%= @dog.name %> </h2>
+        <p class="dog-profile-text"><%= @dog.description %></p>
+      </div>
+      </div>
     </div>
-    <div class="d-flex justify-content-between">
-      <p class="breed-margin-left"><%= @dog.breed %></p>
-      <p class="age-margin-right"><%= @dog.age %> years old</p>
 
-
-      <%= link_to toggle_favourite_dog_path(@dog), remote: true, method: :post do %>
-        <i class="fas fa-heart like-icon <%= 'red' if current_user.favorited?(@dog) %>" data-id="<%= @dog.id %>"></i>
+    <div class="dog-profile dog-profile-margin-top">
+      <h2>Reviews</h2>
+      <% @reviews.each do |review| %>
+        <div class="review-card d-flex p-3">
+          <%= cl_image_tag @dog.user.photo.key, class: "review-avatar mr-5" %>
+          <div class="review-content">
+            <%= review.content %>
+            <div class="review-stars mt-3">
+              <% 5.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </div>
-    <%= cl_image_tag @dog.photos.first.key, class: "mx-auto d-block dog-img" %>
-
-    <!-- Dog Description -->
-    <div>
-      <h2 class="dog-profile-header">More About <%= @dog.name %> </h2>
-      <p class="dog-profile-text"><%= @dog.description %></p>
     </div>
   </div>
 
 
-  <div class="side-content-container col-md-3">
+  <div class="side-content-container col-md-3 mb-3">
     <div class="side-card ">
       <p class="mb-0 p-2">Location</p>
       <div id="map"
@@ -56,25 +80,6 @@
   </div>
 </div>
 
-
-
-<div class="show-container d-flex justify-content-center mb-4">
-  <div class="col-md-8 dog-profile">
-    <h2>Reviews</h2>
-    <% @reviews.each do |review| %>
-      <div class="review-card d-flex p-3">
-        <%= cl_image_tag @dog.user.photo.key, class: "review-avatar mr-5" %>
-        <div class="review-content">
-          <%= review.content %>
-          <div class="review-stars mt-3">
-            <% 5.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
   <div class="side-content-container col-md-3"></div>
   <!-- empty side bar -->
 </div>

@@ -10,8 +10,10 @@
        <% @dogs.each do |dog| %>
         <div class="d-flex justify-content-around align-items-center">
           <div>
-            <% if dog.photos %>
+            <% if dog.photos.any? %>
             <%= cl_image_tag dog.photos.first.key, class: "dog-avatar m-4" %>
+            <% else %>
+            <%= image_tag "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623928605/melon_dog_vmg3vk.jpg", alt: "alttext", class: "dog-avatar m-4" %>
             <% end %>
           </div>
           <div class="mt-3 mb-3">

@@ -19,8 +19,10 @@
     <% @dogs.each do |dog| %>
     <%= link_to dog_path(dog) do %>
     <div class="card-trip">
-      <% if dog.photos %>
+      <% if dog.photos.any? %>
       <%= cl_image_tag dog.photos.first.key %>
+      <% else %>
+      <%= image_tag "https://res.cloudinary.com/ds6vgzap2/image/upload/v1623928605/melon_dog_vmg3vk.jpg", alt: "alttext" %>
       <% end %>
       <div class="card-trip-infos">
         <div>

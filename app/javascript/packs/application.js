@@ -38,20 +38,25 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initChatroomCable();
   initSweetalert('#create-dog-btn', {
-    title: "Becoming a Paw-Pal",
+    title: "Becoming a Paw-Pal..",
     text: "Welcome to Paw-Pals",
     icon: "success"
   });
-  initSweetalert('#create-booking-btn', {
-    title: "BOoking confirmed",
-    text: "Have a great doggy date.",
-    icon: "success"
-  });
+  const btn = document.querySelector('#create-booking-btn')
+  if (btn) {
+    const dog = btn.dataset.dog
+    initSweetalert('#create-booking-btn', {
+      title: "Booking confirmed.",
+      text: `Don't be shy, contact ${dog}'s owner via chat.`,
+      icon: "success"
+    });
+  }
+  
   document.querySelectorAll('.sweet-alert-delete').forEach(element => {
     let id = element.dataset.id
     initSweetalert(`#delete-booking-${id}`, {
-      title: "Are you sure?",
-      text: "This action cannot be reversed",
+      title: "Cancel booking?",
+      text: "Are you sure you want to cancel this booking?",
       icon: "warning"
     }, (value) => {
       if (value) {

@@ -1,6 +1,6 @@
 .messages {
   font-size: 14px;
-  color: #868686;
+  color: white;
   background-color: #ffffff;
   padding: 20px;
   border: 1px solid #ececec;
@@ -16,16 +16,18 @@
   &.right {
     flex-direction: row-reverse;
     .message-content {
-      background-color: #F2F9FC;
+      background-color: #f39d9c;
     }
   }
 }
 .message-content {
-  background-color: #F7F7F7;
+  background-color: #eb5b5a;
   border-radius: 3px;
   margin: 0 10px;
-  padding: 11px 10px 8px 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
 .avatar {
   width: 42px;
   height: 42px;
@@ -60,3 +62,8 @@ input.form-control {
     margin: 0;
   }
 }
+
+.author {
+    color: #747474;
+    }
+

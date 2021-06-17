@@ -1,10 +1,16 @@
-<div class="message-container message <%= message.user != current_user ? "right" : "" %>" id="message-<%= message.id %>">
-  <i class="author">
-    <span><%= message.user.name %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
- <%= cl_image_tag message.user.photo.key, class: "avatar" %>
-  <div class="message-content">
-    <p><%= message.content %></p>
-  </div>
-</div>
+<div class="message-container message right" id="message-<%= message.id %>">
+      <div>
+         <%= cl_image_tag message.user.photo.key, class: "avatar" %>
+        </div>
+
+        <div class="message-content">
+          <p><%= message.content %></p>
+        </div>
+
+      </div>
+       <div class="right">
+          <i class="author">
+            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+          </i>
+        </div>
+

@@ -21,3 +21,15 @@ input[type=checkbox] {
   text-shadow: 1px 1px 1px rgb(0,0,0);
   font-size: 36px;
 }
+
+
+.form-transition {
+  transition: 0.2s;
+  height: 430px;
+}
+
+.closed-form {
+  height: 0px;
+  overflow: hidden;
+}
+

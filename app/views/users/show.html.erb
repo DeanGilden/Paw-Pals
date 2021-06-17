@@ -17,7 +17,7 @@
         <div>
           <h2> <%= @user.name %> </h2>
           <p> <%= @user.address %> </p>
-          <%= button_tag 'Edit', class: "edit-button", data: {id: "1"}%>
+          <%= button_tag 'Edit', class: "edit-button btn-pawpals border-0", data: {id: "1"}%>
         </div>
       </div>
       <%= render "usereditform", user: @user %>

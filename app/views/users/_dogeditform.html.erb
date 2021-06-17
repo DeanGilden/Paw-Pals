@@ -1,7 +1,8 @@
+<%= simple_form_for [dog] do |f| %>
 <div>
 <div class="d-flex justify-content-center">
     <div class="form-text col-4">
-<%= simple_form_for [dog] do |f| %>
+
     <%= f.input :name, required: false, placeholder: "What is your dog's name?"%>
     <%= f.input :breed, required: false, placeholder: "What is your dog's breed?" %>
     <%= f.input :age, required: false, placeholder: "What is your dog's age?" %>
@@ -77,6 +78,7 @@
   <div class="form-text col-8 offset-2">
     <%= f.input :description, required: false, class: ".bg-light description-height", placeholder: 'Please enter a description of your dog:'  %>
     <%= f.button :submit, class: "offset-4 btn btn-pawpals text-center mb-3", id: "create-dog-btn" %>
-  <% end %>
+
   </div>
 </div>
+ <% end %>

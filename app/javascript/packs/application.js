@@ -28,6 +28,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initSweetalert } from '../components/pop-up';
+import { editForm } from '../components/edit_form';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -37,6 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initChatroomCable();
+  editForm();
   initSweetalert('#create-dog-btn', {
     title: "Becoming a Paw-Pal..",
     text: "Welcome to Paw-Pals",

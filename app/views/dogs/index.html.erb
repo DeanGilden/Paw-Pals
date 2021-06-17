@@ -18,7 +18,7 @@
   <div class="cards">
     <% @dogs.each do |dog| %>
     <%= link_to dog_path(dog) do %>
-    <div class="card-trip">
+    <div class="card-trip mb-3">
       <% if dog.photos.any? %>
       <%= cl_image_tag dog.photos.first.key %>
       <% else %>

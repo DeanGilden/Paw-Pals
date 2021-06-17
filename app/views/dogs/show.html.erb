@@ -35,7 +35,7 @@
       <h2>Reviews</h2>
       <% @reviews.each do |review| %>
         <div class="review-card d-flex p-3">
-          <%= cl_image_tag @dog.user.photo.key, class: "review-avatar mr-5" %>
+          <%= cl_image_tag review.user.photo.key, class: "review-avatar mr-5" %>
           <div class="review-content">
             <%= review.content %>
             <div class="review-stars mt-3">

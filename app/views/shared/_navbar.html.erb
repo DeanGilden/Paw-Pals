@@ -3,13 +3,13 @@
 
   <div class="text-center" id="navbarSupportedContent">
     <ul class="navbar-nav flex-row">
-      <li class="active pr-5">
+      <li class="active mr-5">
         <%= link_to 'DOGS', dogs_path, class:" nav-links text-decoration-none"%><span class="sr-only"><span>(current)</span></a>
       </li>
-      <li class="pr-5 nav-links">
+      <li class="mr-5 nav-links">
         <%= link_to 'BECOME A PAWPAL', new_dog_path, class: " nav-links text-decoration-none"%>
       </li>
-      <li class="m pr-5 nav-links">
+      <li class=" mr-5 nav-links">
         <% if user_signed_in? %>
         <%= link_to 'MY BOOKINGS', bookings_path, class: "nav-links  text-decoration-none" %>
         <% end %>

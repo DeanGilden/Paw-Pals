@@ -7,7 +7,7 @@
         <h1 class="dog-profile-header"><%= @dog.name %></h1>
         <%= link_to 'Request a meet up', new_dog_booking_path(@dog), class: "btn-pawpals mr-3" if @dog.user != current_user %>
       </div>
-      <div class="d-flex justify-content-between mb-4">
+      <div class="d-flex justify-content-between pb-3 border-bottom mb-5">
         <p class="breed-margin-left"><%= @dog.breed %></p>
         <p class="age-margin-right"><%= @dog.age %> years old</p>
 
@@ -25,14 +25,17 @@
         <% end %>
       <!-- Dog Description -->
       <div class="">
-        <h2 class="dog-profile-header">More About <%= @dog.name %> </h2>
+        <h4 class="dog-profile-more-about">More About <%= @dog.name %> </h4>
         <p class="dog-profile-text"><%= @dog.description %></p>
       </div>
       </div>
     </div>
-
-    <div class="dog-profile dog-profile-margin-top">
-      <h2>Reviews</h2>
+    <% if @reviews.any? %>
+    <div class="dog-profile dog-profile-margin-top visible">
+    <% else %>
+    <div class="dog-profile dog-profile-margin-top invisible">
+    <% end %>
+      <h2 class="dog-profile-header">Reviews</h2>
       <% @reviews.each do |review| %>
         <div class="review-card d-flex p-3">
           <%= cl_image_tag review.user.photo.key, class: "review-avatar mr-5" %>
@@ -40,7 +43,7 @@
             <%= review.content %>
             <div class="review-stars mt-3">
               <% 5.times do %>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star text-red"></i>
               <% end %>
             </div>
           </div>

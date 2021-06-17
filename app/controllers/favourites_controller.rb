@@ -9,8 +9,8 @@ class FavouritesController < ApplicationController
     @favourite.user = current_user
 
     if @favourite.save
-      redirect_to favourites_path
 
+      redirect_to favourites_path
     else
       render 'dogs/show'
     end

@@ -33,18 +33,18 @@ puts "Finished Creating Users"
 
 puts "Creating Dogs..."
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623160752/IMG_20200803_200251_1_smefwh.jpg')
-dog = Dog.new(name: "Dolly", breed:"Miniature Dachshund", age: 10, temperament: "Grumpy", sex: "Female", description: "Dolly is a stunning 10 year old Dachshund who still acts like a massive puppy.  She loves her toys and will fight anyone who tries to take them away. Dolly is looking for an adult only PawPal as she can be wary of strangers and reactive to dogs so will need quiet walking areas. Dolly loves Chihuahua’s and other like minded dachshunds.", user: user)
-dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
-dog.save!
+dolly = Dog.new(name: "Dolly", breed:"Miniature Dachshund", age: 10, temperament: "Grumpy", sex: "Female", description: "Dolly is a stunning 10 year old Dachshund who still acts like a massive puppy.  She loves her toys and will fight anyone who tries to take them away. Dolly is looking for an adult only PawPal as she can be wary of strangers and reactive to dogs so will need quiet walking areas. Dolly loves Chihuahua’s and other like minded dachshunds.", user: user)
+dolly.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
+dolly.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623239285/image4_scbsks.jpg')
 
 dog = Dog.new(name: "Lunar", breed: "Siberian Husky", age: 5, temperament: "Energetic", sex: "Female", description: "Lunar is a lively 4 year old Husky looking for an active experience. She loves to go on exciting adventures and would love other dogs that have as much energy as she does! Lunar is such an intelligent girl and would love a pawpal who are enthuastic about playing fetch.", user: user3)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623159371/20210521_181741_2_jjbumc.jpg')
-dog = Dog.new(name: "Jimi", breed: "Chihuahua", age: 1, temperament: "Playful", sex: "Male", description: "Jimi is tiny and cute but is someone who also has plenty of character. He may be small, but he thinks he is a big dog in a small body. Jimi does like things on his terms and if he doesnt want to do something he will be sure to tell you. Jimi is very good in the car, he walks very well on the lead and certainly loves a cuddle, but again only on his terms.", user: user2)
-dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
-dog.save!
+jimi = Dog.new(name: "Jimi", breed: "Chihuahua", age: 1, temperament: "Playful", sex: "Male", description: "Jimi is tiny and cute but is someone who also has plenty of character. He may be small, but he thinks he is a big dog in a small body. Jimi does like things on his terms and if he doesnt want to do something he will be sure to tell you. Jimi is very good in the car, he walks very well on the lead and certainly loves a cuddle, but again only on his terms.", user: user2)
+jimi.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
+jimi.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623160757/photo-1530281700549-e82e7bf110d6_upsa3g.jpg')
 dog = Dog.new(name:"Susan", breed: "Cocker Spaniel", age: 3, temperament: "Wild", sex: "Female" , description: "Susan is an energetic 5 year old working cocker cross springer spaniel who loves to be busy. She requires a good balance of physical exercise, training activities and mental stimulation and so would suit a PawPal of a similar type. Sampson enjoys practicing agility in the park, and has started learning some basic gun dog skills to keep her brain engaged.", user: user2)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
@@ -113,9 +113,9 @@ dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623944335/Beagle-puppy-standing-in-the-grass-1_xag4pk.jpg')
-dog = Dog.new(name:" Benny", breed: "Beagle", age: 1, temperament: "Playful", sex: "Male", description: "Benny is a playful dog hoping to make lots of new paw pals. His human has just moved to the area and is keen for him to have regular play dates to continue his successful socialisation.", user: user3)
-dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
-dog.save!
+benny = Dog.new(name:" Benny", breed: "Beagle", age: 1, temperament: "Playful", sex: "Male", description: "Benny is a playful dog hoping to make lots of new paw pals. His human has just moved to the area and is keen for him to have regular play dates to continue his successful socialisation.", user: user3)
+benny.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
+benny.save!
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1623944501/Affenpinscher-puppy_omuywr.jpg')
 dog = Dog.new(name:"Aipom", breed: "Affenpinscher", age: 1, temperament: "Wild", sex: "Male", description: "This little guy is very excitable and wild. He needs to meet some dogs with a similar temperament to ensure he can burn his energy and is not too much for other shyer, calmer dogs", user: user2)
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
@@ -125,3 +125,9 @@ dog = Dog.new(name:"Alexander", breed: "Jack Russell Terrier", age: 9, temperame
 dog.photos.attach(io: file, filename: 'dog.png', content_type: 'image/png')
 dog.save!
 puts "Finished Creating Dogs!"
+
+booking = Booking.new(date: Date.new(2021,05,20), my_dog: benny, their_dog: dolly, accepted: true)
+booking.save!
+
+review = Review.new(content: "Jimi is a lovely dog, very friendly and playful. Recommend him as a paw pal! :)", dog: jimi, user: user3)
+review.save!

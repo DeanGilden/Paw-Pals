@@ -44,7 +44,8 @@
                 <% if booking.accepted && booking.date.past? && booking.date != nil %>
                   <%= link_to 'Write a review', new_dog_review_path(booking.their_dog), class: "btn-pawpals-booking"  %>
                 <% else %>
-                  <%= link_to 'Cancel invitation', booking_path(booking), method: :delete, class: "btn-pawpals-booking-delete"  %>
+                  <button data-id='<%= booking.id %>' id="delete-booking-<%= booking.id %>" class="btn-pawpals-booking-delete sweet-alert-delete">Cancel</button>
+                  <%= link_to '', booking_path(booking), method: :delete, class: "hidden",  id: "delete-link-#{booking.id}"   %>
                 <% end %>
               </div>
             </div>

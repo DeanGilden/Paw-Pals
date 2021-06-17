@@ -2,7 +2,6 @@
   <%= simple_form_for [dog, booking] do |f| %>
     <%= f.input :date, as: :datetime, required: true, html5: true %>
     <%= f.input :my_dog_id, collection: current_user.dogs %>
-    <%= f.button :submit, class: "btn btn-pawpals" %>
+    <%= f.button :submit, class: "btn btn-pawpals", id: "create-booking-btn" %>
   <% end %>
 </div>
-

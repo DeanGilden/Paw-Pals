@@ -38,8 +38,27 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initChatroomCable();
   initSweetalert('#create-dog-btn', {
-    title: "A nice alert",
-    text: "This is a great alert, isn't it?",
+    title: "Becoming a Paw-Pal",
+    text: "Welcome to Paw-Pals",
     icon: "success"
   });
+  initSweetalert('#create-booking-btn', {
+    title: "BOoking confirmed",
+    text: "Have a great doggy date.",
+    icon: "success"
+  });
+  document.querySelectorAll('.sweet-alert-delete').forEach(element => {
+    let id = element.dataset.id
+    initSweetalert(`#delete-booking-${id}`, {
+      title: "Are you sure?",
+      text: "This action cannot be reversed",
+      icon: "warning"
+    }, (value) => {
+      if (value) {
+        const link = document.querySelector(`#delete-link-${id}`);
+        link.click();
+      }
+    });
+  })
+
 });

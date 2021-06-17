@@ -4,7 +4,7 @@
   </div>
   <div class="messages" id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
-      <div class="message-container message <%= message.user != current_user ? "right" : "" %>" id="message-<%= message.id %>">
+      <div class="message-container d-flex message <%= message.user != current_user ? "right flex-end" : "" %>" id="message-<%= message.id %>">
         <div >
           <i class="author">
             <span><%= message.user.name %></span>

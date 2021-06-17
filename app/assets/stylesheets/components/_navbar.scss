@@ -28,8 +28,10 @@
   font-size: 18px;
   text-decoration: none;
   transition: 0.5s;
+  border-bottom: solid 1px #EB5C5A;
   &:hover {
     color: #cc3633;
+    border-bottom: solid 1px #cc3633;
   }
 }
 

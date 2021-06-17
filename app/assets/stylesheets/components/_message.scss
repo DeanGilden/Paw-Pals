@@ -3,16 +3,18 @@
   color: white;
   background-color: #ffffff;
   padding: 20px;
-  border: 1px solid #ececec;
+  box-shadow: none;
   border-top: none;
   border-bottom-width: 0;
-  max-height: calc(100vh - 70px - 45px - 61px - 30px);
-  overflow: scroll;
+  max-height: calc(120vh - 90px - 60px - 61px - 30px);
+  overflow-y: scroll;
+  height: 70%;
 }
 
 .message {
   display: flex;
   margin-bottom: 10px;
+  width: 100%;
   &.right {
     flex-direction: row-reverse;
     .message-content {
@@ -24,8 +26,9 @@
   background-color: #eb5b5a;
   border-radius: 3px;
   margin: 0 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
 }
 
 .avatar {
@@ -38,7 +41,6 @@
   padding: 10px;
   background-color: #ffffff;
   margin-bottom: 20px;
-  border: 1px solid #ececec;
 }
 .message_content {
   margin-bottom: 0;
@@ -66,4 +68,6 @@ input.form-control {
 .author {
     color: #747474;
     }
-
+.min-height {
+  height: 100vh;
+}

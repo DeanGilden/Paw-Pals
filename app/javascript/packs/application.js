@@ -35,7 +35,9 @@ import { editForm } from '../components/edit_form';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  initMapbox();
+  if (document.querySelector('#map')) {
+    initMapbox();
+  }
   initAutocomplete();
   initChatroomCable();
   editForm();

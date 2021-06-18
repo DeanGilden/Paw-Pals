@@ -39,9 +39,9 @@
       <% @reviews.each do |review| %>
         <div class="review-card d-flex p-3">
           <%= cl_image_tag review.user.photo.key, class: "review-avatar mr-5" %>
-          <div class="review-content">
+          <div class="review-content review-margin-top">
             <%= review.content %>
-            <div class="review-stars mt-3">
+            <div class="review-stars">
               <% 5.times do %>
                 <i class="fas fa-star text-red"></i>
               <% end %>

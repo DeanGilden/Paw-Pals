@@ -15,7 +15,7 @@ body {
   background-color: white;
   border-radius: 20px;
   margin-right: 20px;
-  padding: 20px 40px 50px 20px;
+  padding: 20px 40px 55px 20px;
 }
 
 .dog-profile-margin-top {
@@ -30,11 +30,20 @@ body {
 
 .dog-profile-text {
   padding: 5px 0px 5px 60px;
+  font-size: 14px;
+  font-weight: 100;
 }
 
 .dog-profile-header {
-  padding: 30px 20px 0px 48px;
+  padding: 30px 20px 0px 38px;
 }
+
+.dog-profile-more-about {
+  padding: 19px 20px 0px 58px;
+  font-weight: 400;
+}
+
+
 
 .breed-margin-left {
   margin-left: 45px;
@@ -47,3 +56,9 @@ body {
 .padding-dog-img {
   padding-left: 40px;
 }
+
+.text-red {
+  color:#EB5C5A;
+}
+
+

@@ -16,7 +16,7 @@ Review.destroy_all
 
 puts "Creating Users ..."
 file = URI.open('https://res.cloudinary.com/ds6vgzap2/image/upload/v1622215117/85hbbudq7d5j50b82zlnb1595equ.jpg')
-user = User.new(name: "Joe Smith", address: "46 Grosvenor Court, Adenmore Road, London, SE6 4FD", contact_number: "07706782877", email: "joe@test.co.uk", password: "123456")
+user = User.new(name: "Joe Smith", address: "SE6 4FD", contact_number: "07706782877", email: "joe@test.co.uk", password: "123456")
 user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 user.save!
 
